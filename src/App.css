@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+
+
+@theme {
+  --breakpoint-*: initial ;
+  --breakpoint-sm:576px ;
+  --breakpoint-md:768px ;
+  --breakpoint-lg:992px ;
+  --breakpoint-xl:1478px ;
+  --color-primary: '#8FAFAFA';
+  --color-blackPrimary: #313131;
+}
+
+@layer utilities {
+  .container{
+    margin:auto ;
+  }
+}
+
+.banner-ul li{
+  line-height: 33px;
+  width: 247px;
+}
+
