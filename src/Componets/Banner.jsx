@@ -20,8 +20,8 @@ const Banner = () => {
   return (
     <div className='realtive border-t border-[#00000061]'>
       <Container>
-        <Flex className='justify-between'>
-            <div className='border-r border-[#00000061] pr-5.5'>
+        <Flex className=' gap-12.25 '>
+            <div className='border-r border-[#00000061] pe-4.5 w-[10%]'>
                 <ul className='banner-ul gap-y-16 mt-10 '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
@@ -35,9 +35,9 @@ const Banner = () => {
                     <li>Health & Beauty</li>
                 </ul>
             </div>
-            <div className='w-250 mx-auto  '> 
+            <div className=' mx-auto pt-10 w-[90%] '> 
               
-              <Slider {...settings} className='w-full '>
+               <Slider {...settings} >
                 <div>
                   <h3><img src={bannerImg} alt="" /></h3>
                 </div>
@@ -47,9 +47,7 @@ const Banner = () => {
                 <div>
                   <h3><img src={bannerImg} alt="" /></h3>
                 </div>
-                <div>
-                </div>
-              </Slider>
+               </Slider>
             </div>
         </Flex>
       </Container>
