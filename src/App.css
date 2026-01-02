@@ -41,3 +41,9 @@
     background-color:#DB4444 ;
     border: 2px solid white;
 }
+
+
+.slick-arrow .slick-prev{
+  /* left: none; */
+  right: 0px !important;
+}

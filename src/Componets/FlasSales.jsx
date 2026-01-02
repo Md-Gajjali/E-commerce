@@ -7,28 +7,40 @@ import Flex from './Flex'
 import Slider from "react-slick";
 import CountDown from './CountDown'
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "grey" }}
-      onClick={onClick}
-    />
-  );
-}
-
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "grey" }}
+      style={{ ...style, 
+      display: "block", 
+      background: "grey",
+      top:'-25px',
+      left:'1090px'
+     }}
       onClick={onClick}
     />
   );
 }
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, 
+        display: "block",
+        background: "grey", 
+        top:'-25px',
+        right:'5px',
+        
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 
 
 const FlasSales = () => {
@@ -38,7 +50,18 @@ const FlasSales = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+        appendDots: dots => (
+      <div
+        style={{
+         display:'none'
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+
+    
   };
   return (
     <>
