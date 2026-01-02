@@ -11,8 +11,7 @@ const Header = () => {
         <Container>
             <Flex className='justify-between items-center'>
                     <p className='w-200 text-[14px] mx-auto  opacity-90 '>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!       <a href="" className='text-white opacity-100'>ShopNow</a></p>
-                    <button>
-                        
+                    <button className='flex items-center gap-1'>
                         English <SlArrowDown  /> 
                     </button>
             </Flex>

@@ -16,19 +16,19 @@ const Navber = () => {
                 <div>
                     <img src={ex} alt="" />
                 </div>
-                <ul className='flex justify-between gap-12'>
+                <ul className='flex justify-between gap-12 font-pop'>
                     <li>Home</li>
                     <li>Contact</li>
                     <li>About</li>
                     <li>Sign up</li>
                 </ul>
-                <div className='relative gap-6'>
+                <div className='relative '>
                     <input type="text" 
                     placeholder='What are you looking for?' 
                     className='rounded-sm outline-none  text-xs  bg-[#F5F5F5] w-60.75 ps-5 pe-17.5 py-2.75  ' />
                     <SlMagnifier className='text-2xl absolute top-2 right-4'/>
                 </div>
-                <div className='flex text-[32px] gap-4'>
+                <div className='flex text-[32px] '>
                     <CiHeart />
                     <FaOpencart />
                 </div>

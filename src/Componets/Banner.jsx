@@ -15,13 +15,28 @@ const Banner = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-  };
+    appendDots: dots => (
+        <div
+          style={{
+            color:'#808080',
+            borderRadius: "10px",
+            padding: "10px"
+          }}
+        >
+          <ul style={{ margin: "0px" }}> {dots} </ul>
+        </div>
+      ),
+      customPaging: i => (
+        <div className='w-3 h-3 rounded-full bg-[#808080] '/>
+      )
+    };
+
 
   return (
     <div className='realtive border-t border-[#00000061]'>
       <Container>
         <Flex className=' gap-12.25 '>
-            <div className='border-r border-[#00000061] pe-4.5 w-[10%]'>
+            <div className='border-r border-[#00000061] pe-4.5 w-[30%] font-pop'>
                 <ul className='banner-ul gap-y-16 mt-10 '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
@@ -35,7 +50,7 @@ const Banner = () => {
                     <li>Health & Beauty</li>
                 </ul>
             </div>
-            <div className=' mx-auto pt-10 w-[90%] '> 
+            <div className='  mx-auto pt-10 w-[70%] '> 
               
                <Slider {...settings} >
                 <div>
