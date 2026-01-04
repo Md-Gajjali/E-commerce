@@ -4,6 +4,7 @@
 
 
 
+
 @theme {
   --breakpoint-*: initial ;
   --breakpoint-sm:576px ;
@@ -43,7 +44,13 @@
 }
 
 
-.slick-arrow .slick-prev{
-  /* left: none; */
-  right: 0px !important;
+
+.slick-prev:before {
+    content: url('./assets/icons_arrow-left.png') !important;
+    opacity: 100% !important;
+}
+
+.slick-next:before {
+    content: url('./assets/icons arrow-right.png') !important;
+    opacity: 100% !important;
 }
