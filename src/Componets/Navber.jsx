@@ -28,7 +28,7 @@ const Navber = () => {
                     className='rounded-sm outline-none  text-xs  bg-[#F5F5F5] w-60.75 ps-5 pe-17.5 py-2.75  ' />
                     <SlMagnifier className='text-2xl absolute top-2 right-4'/>
                 </div>
-                <div className='flex text-[32px] '>
+                <div className='flex text-[32px] gap-4 '>
                     <CiHeart />
                     <FaOpencart />
                 </div>
