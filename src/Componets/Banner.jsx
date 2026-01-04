@@ -52,7 +52,7 @@ const Banner = () => {
             </div>
             <div className='  mx-auto pt-10 w-[70%] '> 
               
-               <Slider {...settings} >
+               <Slider {...settings} className='overflow-hidden' >
                 <div>
                   <h3><img src={bannerImg} alt="" /></h3>
                 </div>

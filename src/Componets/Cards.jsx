@@ -23,7 +23,7 @@ const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn 
                   </div>
                 </div>
           </div>
-          <button className='group-hover:bottom-0 duration-3000 ease-linear  absolute bg-black text-white block text-[16px] w-full py-2 px-20 font-pop  cursor-pointer '>{btn}</button>
+          <button className='-bottom-10 group-hover:bottom-0 duration-300 ease-linear  absolute bg-black text-white block text-[16px] w-full py-2 px-20 font-pop  cursor-pointer '>{btn}</button>
         </div>
 
         <h2 className='py-4'>{title}</h2>

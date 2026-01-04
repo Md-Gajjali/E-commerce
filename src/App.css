@@ -54,3 +54,11 @@
     content: url('./assets/icons arrow-right.png') !important;
     opacity: 100% !important;
 }
+
+
+.slick-slide{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px;
+}
