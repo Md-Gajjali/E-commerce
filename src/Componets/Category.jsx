@@ -107,7 +107,7 @@ const Category = () => {
                   />
                   </Slider>
                 </Flex>
-                <div className='border border-[#00000036] mt-[70px]' />
+                <div className='border border-[#00000036] mt-17.5' />
       </Container>
     </div>
 

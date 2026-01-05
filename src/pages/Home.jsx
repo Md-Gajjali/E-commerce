@@ -6,18 +6,22 @@ import FlasSales from '../Componets/FlasSales'
 import Category from '../Componets/Category'
 import SellProducts from '../Componets/SellProducts'
 import MusicExperience from '../Componets/MusicExperience'
+import ExploreProducts from '../Componets/ExploreProducts'
+import NewArrival from '../Componets/NewArrival'
 
 const Home = () => {
     return (
         <>
-            <Header />
-            <Navber />
-            <Banner />
-            <FlasSales />
-            <Category />
-            <SellProducts />
-            <MusicExperience />
-    </>
+          <Header />
+          <Navber />
+          <Banner />
+          <FlasSales />
+          <Category />
+          <SellProducts />
+          <MusicExperience />
+          <ExploreProducts />
+          <NewArrival />
+        </>
     )
 }
 

@@ -1,10 +1,9 @@
 import React from 'react'
 
-const SecHeading = ({title,heading}) => {
+const SecHeading = ({title,heading,className}) => {
   return (
-    <div>
-      
-        <div className='flex items-center '>
+    <div className={` ${className}`}>
+        <div className={`flex items-center`}>
             <div className='w-5 h-10 bg-primary rounded-sm '/>
             <h5 className='font-pop font-semibold text-primary  pl-4'>{title}</h5>
         </div>
