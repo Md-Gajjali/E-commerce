@@ -3,36 +3,12 @@ import Container from './Container'
 import Flex from './Flex'
 import SecHeading from './SecHeading'
 import Button from './Button'
-import Slider from "react-slick";
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
 import Cards from './Cards'
 import bag from '../assets/Selling-Product/bag.png'
 import jacket from '../assets/Selling-Product/jacket.png'
 import speaker from '../assets/Selling-Product/speaker.png'
 import table from '../assets/Selling-Product/table.png'
-
-
-function SamplePrevArrow(props) {
-  const { onClick } = props;
-  return (
-    <div className='block absolute rounded-full p-3 bg-gray-100 right-17 -top-12' onClick={onClick} >
-      <FaArrowLeft />
-    </div>
-  );
-}
-
-
-function SampleNextArrow(props) {
-  const { onClick } = props;
-  return (
-    <div className='block absolute rounded-full p-3 bg-gray-100 right-5 -top-12' onClick={onClick} >
-      <FaArrowRight />
-    </div>
-  );
-}
-
-
+import Slider from "react-slick";
 
 
 
@@ -43,8 +19,6 @@ const SellProducts = () => {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
   };
   
   return (
@@ -56,7 +30,7 @@ const SellProducts = () => {
                     title='This Month'
                     heading='Best Selling Products'
                 />
-                <Button className='w-39.75 absolute top-13 right-0 '>
+                <Button className='w-39.75 bg-primary absolute top-13 right-0 '>
                     View All
                 </Button>
             </div>
@@ -72,7 +46,7 @@ const SellProducts = () => {
                   disHidden='hidden'
                 />
                 <Cards 
-                  ImgSrc={jacket}
+                  ImgSrc={bag}
                   title='The north coat'
                   price='260'
                   discountPrice='360'
@@ -82,16 +56,7 @@ const SellProducts = () => {
 
                 />
                 <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                /><Cards 
-                  ImgSrc={jacket}
+                  ImgSrc={speaker}
                   title='The north coat'
                   price='260'
                   discountPrice='360'
@@ -101,7 +66,26 @@ const SellProducts = () => {
 
                 />
                 <Cards 
+                  ImgSrc={table}
+                  title='The north coat'
+                  price='260'
+                  discountPrice='360'
+                  Review='65'
+                  btn='Add To Card'
+                  disHidden='hidden'
+
+                />
+                  <Cards 
                   ImgSrc={jacket}
+                  title='The north coat'
+                  price='260'
+                  discountPrice='360'
+                  Review='65'
+                  btn='Add To Card'
+                  disHidden='hidden'
+                />
+                <Cards 
+                  ImgSrc={bag}
                   title='The north coat'
                   price='260'
                   discountPrice='360'
@@ -111,7 +95,7 @@ const SellProducts = () => {
 
                 />
                 <Cards 
-                  ImgSrc={jacket}
+                  ImgSrc={speaker}
                   title='The north coat'
                   price='260'
                   discountPrice='360'
@@ -121,27 +105,7 @@ const SellProducts = () => {
 
                 />
                 <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={jacket}
+                  ImgSrc={table}
                   title='The north coat'
                   price='260'
                   discountPrice='360'

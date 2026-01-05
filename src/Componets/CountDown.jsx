@@ -5,7 +5,7 @@ import Flex from './Flex';
 
 const CountDown = ({className}) => {
 
-    const conduct_date = '2026-01-05 16:00:00';
+    const conduct_date = '2026-01-08 16:00:00';
     const [time,setTime]= useState([])
     
     
