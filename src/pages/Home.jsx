@@ -5,6 +5,7 @@ import Banner from '../Componets/Banner'
 import FlasSales from '../Componets/FlasSales'
 import Category from '../Componets/Category'
 import SellProducts from '../Componets/SellProducts'
+import MusicExperience from '../Componets/MusicExperience'
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <FlasSales />
             <Category />
             <SellProducts />
+            <MusicExperience />
     </>
     )
 }

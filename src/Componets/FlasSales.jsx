@@ -4,9 +4,9 @@ import Container from './Container'
 import Cards from './Cards'
 import console from '../assets/console.png'
 import Flex from './Flex'
-import Slider from "react-slick";
 import CountDown from './CountDown'
 import Button from './Button'
+import Slider from "react-slick";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 

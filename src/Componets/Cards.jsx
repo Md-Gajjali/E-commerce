@@ -5,15 +5,15 @@ import { FiEye } from "react-icons/fi";
 import Flex from './Flex';
 
 
-const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn }) => {
+const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn ,disHidden }) => {
   return (
     <>
       <div className='w-67.5 mt-10 group'>
         <div className='relative overflow-hidden '>
           <img src={ImgSrc} alt="" />
-          <div className=''>
-            <h3 className='absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
-              text-xs text-white rounded-sm'>-{DisParcentge}</h3>
+          <div className='discount'>
+            <h3 className={`absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
+              text-xs text-white rounded-sm  ${disHidden}`}>-{DisParcentge}</h3>
                 <div className='absolute top-3 right-3 flex flex-col gap-y-4 py-3'>
                   <div className=' h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25'>
                     <FaRegHeart className='text-2xl ' />
@@ -28,11 +28,11 @@ const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn 
 
         <h2 className='py-4'>{title}</h2>
         <div className='flex items-center gap-2.5  '>
-          <h3 className='text-primary'>{price}</h3>
-          <h3 className='line-through'>${discountPrice}</h3>
+          <h3 className='text-primary'>${price}</h3>
+          <h3 className=' line-through text-[#7D8184]'>${discountPrice}</h3>
         </div>
         <Flex className='items-center '>
-          <Flex className='text-[#FFAD33]'>
+          <Flex className= 'mt-2 text-[#FFAD33] '>
             <FaStar />
             <FaStar />
             <FaStar />
@@ -40,7 +40,7 @@ const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn 
             <FaStar />
             <FaStar />
           </Flex>
-          <h5 className=''>({Review})</h5>
+          <h5 className='pl-2 text-[#7D8184]'>({Review})</h5>
         </Flex>
       </div>
     </>
