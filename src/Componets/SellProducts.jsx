@@ -9,15 +9,17 @@ const SellProducts = () => {
     <>
       <div className='mt-15'>
         <Container>
-            <Flex className='justify-between'>
+            <div className=' relative '>
                 <SecHeading 
                     title='This Month'
                     heading='Best Selling Products'
                 />
-            </Flex>
-                <Button className='39.75 '>
+                <Button className='w-39.75 absolute top-13 right-0 '>
                     View All
                 </Button>
+            </div>
+
+            
         </Container>
       </div>
     </>
