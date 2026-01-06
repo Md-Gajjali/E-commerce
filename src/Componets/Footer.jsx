@@ -5,8 +5,6 @@ import Flex from './Flex'
 const Footer = () => {
   return (
     <>
-
-
       <div className="text-white mt-32.5 bg-black block ">
         <div className="mx-auto w-full container pb-15 pt-20  text-white">
           <div className="md:flex md:justify-between">

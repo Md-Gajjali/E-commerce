@@ -6,6 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { LuChartBarStacked } from "react-icons/lu";
 
 
 const Banner = () => {
@@ -28,16 +29,42 @@ const Banner = () => {
       ),
       customPaging: i => (
         <div className='w-3 h-3 rounded-full bg-[#808080] '/>
-      )
+      ),
+    //   responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //       infinite: true,
+    //       dots: true
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //       initialSlide: 1
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1
+    //     }
+    //   }
+    // ]
     };
 
 
   return (
-    <div className='realtive border-t border-[#00000061]'>
+    <div className='relative border-t border-[#00000061] px-3 lg:px-static'>
       <Container>
-        <Flex className=' gap-12.25 '>
+        <div className=' gap-12.25   lg:flex '>
             <div className='lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop'>
-                <ul className='banner-ul gap-y-16 mt-10 hidden lg:block '>
+                <ul className='banner-ul lg:gap-y-16 mt-10 hidden lg:block '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li>Electronics</li>
@@ -50,9 +77,9 @@ const Banner = () => {
                     <li>Health & Beauty</li>
                 </ul>
             </div>
-            <div className='  lg:mx-auto pt-10 w-full lg:w-[70%] '> 
+            <div className='pt-10 w-full lg:w-[70%] '> 
               
-               <Slider {...settings} className='overflow-hidden' >
+               <Slider {...settings} className=' overflow-hidden' >
                 <div>
                   <h3><img src={bannerImg} alt="" /></h3>
                 </div>
@@ -64,7 +91,8 @@ const Banner = () => {
                 </div>
                </Slider>
             </div>
-        </Flex>
+        </div>
+        <LuChartBarStacked className='absolute top-3 left-3' onClick=''/>
       </Container>
     </div>
   )
