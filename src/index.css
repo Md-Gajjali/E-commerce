@@ -63,6 +63,8 @@
   gap: 20px;
 }
 
+
+
 .Music{
   background-image: url('./assets/JBL.png');
 }
@@ -72,11 +74,11 @@
 }
 
 .WomanVibe{
-  background-image: url('./assets/New\ Arrival/.womanVibe.png');
+  background-image: url('./assets/New\ Arrival/vibe.png');
 }
 
 .perfume{
-  background-image: url('./assets/New\ Arrival/.perfume.png');
+  background-image: url('./assets/New\ Arrival/perfume.png');
 }
 
 

@@ -212,7 +212,7 @@ const ExploreProducts = () => {
                 />
             </Slider>
         </Flex>
-        <Button className='bg-primary text-[16px] font-pop font-medium mt-15 w-58.5'>View All Products</Button>
+        <Button className='bg-primary mx-auto text-[16px] font-pop font-medium mt-15 w-58.5'>View All Products</Button>
       </Container>
     </div>
   )

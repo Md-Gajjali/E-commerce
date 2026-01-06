@@ -8,6 +8,7 @@ import SellProducts from '../Componets/SellProducts'
 import MusicExperience from '../Componets/MusicExperience'
 import ExploreProducts from '../Componets/ExploreProducts'
 import NewArrival from '../Componets/NewArrival'
+import Footer from '../Componets/Footer'
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
           <MusicExperience />
           <ExploreProducts />
           <NewArrival />
+          <Footer />
         </>
     )
 }

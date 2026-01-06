@@ -36,8 +36,8 @@ const Banner = () => {
     <div className='realtive border-t border-[#00000061]'>
       <Container>
         <Flex className=' gap-12.25 '>
-            <div className='border-r border-[#00000061] pe-4.5 w-[30%] font-pop'>
-                <ul className='banner-ul gap-y-16 mt-10 '>
+            <div className='lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop'>
+                <ul className='banner-ul gap-y-16 mt-10 hidden lg:block '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li>Electronics</li>
@@ -50,7 +50,7 @@ const Banner = () => {
                     <li>Health & Beauty</li>
                 </ul>
             </div>
-            <div className='  mx-auto pt-10 w-[70%] '> 
+            <div className='  lg:mx-auto pt-10 w-full lg:w-[70%] '> 
               
                <Slider {...settings} className='overflow-hidden' >
                 <div>
