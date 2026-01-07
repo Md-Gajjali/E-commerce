@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './Container'
 import Flex from './Flex'
 import bannerImg from '../assets/iphone.svg'
@@ -58,13 +58,19 @@ const Banner = () => {
     // ]
     };
 
+    const[show,setShow]=useState(false)
+
+    const handleClick = ()=>{
+      setShow(!show)
+    }
+
 
   return (
     <div className='relative border-t border-[#00000061] px-3 lg:px-static'>
       <Container>
         <div className=' gap-12.25   lg:flex '>
-            <div className='lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop'>
-                <ul className='banner-ul lg:gap-y-16 mt-10 hidden lg:block '>
+            <div className={`${show ? "hidden" :"block" } lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop`} >
+                <ul className='banner-ul lg:gap-y-16 mt-10   lg:block '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li>Electronics</li>
@@ -92,7 +98,7 @@ const Banner = () => {
                </Slider>
             </div>
         </div>
-        <LuChartBarStacked className='absolute top-3 left-3' onClick=''/>
+        <LuChartBarStacked className='absolute top-3 left-3 lg:hidden' onClick={handleClick}/>
       </Container>
     </div>
   )

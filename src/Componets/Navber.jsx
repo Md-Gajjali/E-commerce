@@ -29,9 +29,9 @@ const Navber = () => {
                     <img src={ex} alt="" className='flex' />
                 </div>
 
-                <div className={`${show ? "block" : "hidden"} items-center lg:gap-15  lg:flex absolute top-20 z-100 lg:top-static lg:static`}>
-                  <ul className='lg:flex justify-between gap-12 font-pop  '>
-                      <li>Home</li>
+                <div className={`${show ? "block" : "hidden"} items-center lg:gap-15 lg:flex absolute top-10 lg:top-0 left-0 right-0 px-3 py-2 lg:z-0 z-100 bg-black lg:bg-transparent lg:w-auto text-white lg:text-black lg:bg-hidden lg:static`}>
+                  <ul className='navUl lg:flex justify-between gap-12 font-pop'>
+                      <li >Home</li>
                       <li>Contact</li>
                       <li>About</li>
                       <li>Sign up</li>

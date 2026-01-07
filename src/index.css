@@ -23,6 +23,18 @@
     margin:auto ;
   }
 }
+/* MusicExperience  */
+.time h2{
+  background-repeat:no-repeat;
+}
+/* MusicExperience  */
+
+
+/* navUl */
+.navUl li{
+  border-bottom: 1px solid white;
+}
+/* navUl */
 
 
 
@@ -44,8 +56,6 @@
 }
 
 
-
-
 .slick-slide{
   display: flex !important;
   flex-wrap: wrap !important;
@@ -55,23 +65,27 @@
 
 
 
-.Music{
-  background-image: url('./assets/JBL.png');
-}
-
-.Ps5{
-  background-image: url('./assets/New\ Arrival/Ps5.png');
-}
-
-.WomanVibe{
-  background-image: url('./assets/New\ Arrival/vibe.png');
-}
-
-.perfume{
-  background-image: url('./assets/New\ Arrival/perfume.png');
-}
+/* .MusicExprience    */
 
 
-.speaker{
-  background-image: url('./assets/New\ Arrival/speaker.png');
+.MusicExprience   h2{
+  width: 62px;
+  height: 62px;
+  border-radius: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background: white;
 }
+
+.MusicExprience   h2 p{
+  font-size:12px;
+  font-weight: 500px;
+  font-family:"Poppins", sans-serif;
+}
+
+
+/* .MusicExprience    */
+
