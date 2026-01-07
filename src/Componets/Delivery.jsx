@@ -8,16 +8,18 @@ const Delivery = () => {
   return (
     <div>
       <Container>
-        <Flex className='justify-center gap-22 mt-34'>
+        <Flex className='justify-center  gap-22 mt-34'>
             <DeliveryCards 
                 imgSrc={service}
                 title='FREE AND FAST DELIVERY'
                 heading='Free delivery for all orders over $140'
-            /><DeliveryCards 
+            />
+            <DeliveryCards 
                 imgSrc={service}
                 title='FREE AND FAST DELIVERY'
                 heading='Free delivery for all orders over $140'
-            /><DeliveryCards 
+            />
+            <DeliveryCards 
                 imgSrc={service}
                 title='FREE AND FAST DELIVERY'
                 heading='Free delivery for all orders over $140'

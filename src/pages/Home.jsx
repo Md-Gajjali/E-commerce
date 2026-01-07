@@ -14,8 +14,6 @@ import Delivery from '../Componets/Delivery'
 const Home = () => {
     return (
         <>
-          <Header />
-          <Navber />
           <Banner />
           <FlasSales />
           <Category />
@@ -24,7 +22,6 @@ const Home = () => {
           <ExploreProducts />
           <NewArrival />
           <Delivery />
-          <Footer />
         </>
     )
 }
