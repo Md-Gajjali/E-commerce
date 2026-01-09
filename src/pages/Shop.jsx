@@ -7,6 +7,7 @@ const shop = () => {
     <div>
         <Container>
             <Banner />
+            
         </Container>
     </div>
   )

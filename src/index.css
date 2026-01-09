@@ -89,3 +89,10 @@
 
 /* .MusicExprience    */
 
+ /* shop Page  */
+.myList li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ /* shop Page  */

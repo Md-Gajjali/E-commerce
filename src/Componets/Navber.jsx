@@ -15,9 +15,7 @@ const Navber = () => {
   const [show,setShow]=useState(false)
 
   const handleClick = ()=> {
-    setShow(!show)
-    console.log(show);
-    
+    setShow(!show) 
   }
 
 
@@ -61,7 +59,7 @@ const Navber = () => {
             </Flex>
         </Container>
       </nav>
-                  <div className='border-t border-[#00000061]'/>
+      <div className='border-t border-[#00000061]'/>
 
 
     </>
