@@ -3,9 +3,10 @@ import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import Flex from './Flex';
+import { Rate } from 'antd';
 
 
-const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn ,disHidden }) => {
+const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn ,disHidden ,rating}) => {
   return (
     <>
       <div className='w-67.5 mt-10 group'>
@@ -33,12 +34,7 @@ const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn 
         </div>
         <Flex className='items-center '>
           <Flex className= 'mt-2 text-[#FFAD33] '>
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
+            <Rate allowHalf defaultValue={rating} />
           </Flex>
           <h5 className='pl-2 text-[#7D8184]'>({Review})</h5>
         </Flex>

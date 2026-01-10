@@ -1,36 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import Cards from '../Cards'
-import speaker from '../../assets/Selling-Product/speaker.png'
-import keyboard from '../../assets/keyBoard.png'
-import LAD from '../../assets/LAD.png'
 import Container from '../Container'
 import Flex from '../Flex'
 import { FaCircle } from "react-icons/fa";
+import Breadcrumb from '../Breadcrumb'
 
 
 const Banner = () => {
-    const [products, setProducts] = useState([])
+    const [product, setProduct] = useState([])
 
-
-    useEffect(() => {
+     useEffect(() => {
         fetch('https://dummyjson.com/products')
-            .then(res => res.json())
-            .then((data) => setProducts(data.products));
-    })
-    // console.log(products);
+        .then(res => res.json())
+        .then((data) => setProduct(data.products));
+    }, []);
+
     
 
     return (
         <>
             <Container>
-                <Flex className='justify-between'>
+                <Flex className='justify-between '>
 
                     <div className='w-[20%]'>
-                            <div className='flex  w-full mt-20 text-[14px] font-pop font-normal text-[#3736367b]'>
+                            {/* <div className='flex  w-full mt-20 text-[14px] font-pop font-normal text-[#3736367b]'>
                                 <p>Home <span>/</span></p>
                                 <p> SHop</p>
-                               
-                            </div>
+                                
+                                </div> */}
+                                <Breadcrumb className='mt-15 ' />
+
                             <h2 className='font-pop font-bold text-[20px] mt-12.5'>Shop by Category</h2>
                             <ul className='leading-8 py-3.75 text-[16px] font-normal '>
                                 <li>Woman’s Fashion</li>
@@ -65,16 +64,17 @@ const Banner = () => {
                                 </div>
                             </div>
                             {
-                                products.map((items) => {
+                                product.map((items) => {
                                     return (
                                         <Cards
                                             ImgSrc={items.thumbnail}
                                             title={items.title}
                                             price={ Math.round(items.price -(items.price * items.discountPercentage) /100) }
                                             discountPrice={items.price}
-                                            Review='65'
-                                            // btn='Add To Card'
+                                            Review={items.reviews.length}
+                                            rating={items.rating}
                                             DisParcentge={items.discountPercentage}
+                                            btn='Add To Card'
                                         />
 
                                     )

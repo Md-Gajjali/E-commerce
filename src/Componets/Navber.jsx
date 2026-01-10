@@ -34,10 +34,10 @@ const Navber = () => {
                         <NavLink to="/" end>Home</NavLink>
                       </li>
                       <li >
-                        <NavLink to="/" end>Contact</NavLink>
+                        <NavLink to="/Contact" end>Contact</NavLink>
                       </li>
                       <li >
-                        <NavLink to="/" end>About</NavLink>
+                        <NavLink to="/About" end>About</NavLink>
                       </li>
                       <li >
                         <NavLink to="/" end>Sign up</NavLink>
