@@ -99,6 +99,8 @@ const Banner = () => {
             </div>
         </div>
         <LuChartBarStacked className='absolute top-6 left-0 -mt-4  lg:hidden' onClick={handleClick}/>
+
+      
       </Container>
     </div>
   )

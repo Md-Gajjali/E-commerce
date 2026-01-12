@@ -43,7 +43,7 @@ const Contact = () => {
             </div>
           </div>
 
-        <div className='flex'>
+        <Flex>
           <div className='w-[20%]'>
             <ul className='leading-8 py-3.75 text-[16px]  font-normal'>
               <li>Woman’s Fashion</li>
@@ -83,7 +83,8 @@ const Contact = () => {
             }
 
           </div>
-        </div>
+        </Flex>
+          
       </Container>
     </div>
   )
