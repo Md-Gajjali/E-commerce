@@ -8,7 +8,6 @@ const shop = () => {
     <div>
         <Container>
             <Banner />
-            <CdT/>
         </Container>
     </div>
   )
