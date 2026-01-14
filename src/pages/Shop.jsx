@@ -4,6 +4,7 @@ import Container from '../Componets/Container'
 import Flex from '../Componets/Flex'
 import { FaCircle } from "react-icons/fa";
 import Breadcrumb from '../Componets/Breadcrumb'
+import Paginate from '../Componets/paginate';
 
 
 const Shop = () => {
@@ -72,6 +73,9 @@ const Shop = () => {
                     )
                 })
                 } */}
+
+                <Paginate itemsPerPage={6} products={product} />
+
 
             </div>
             </div>
