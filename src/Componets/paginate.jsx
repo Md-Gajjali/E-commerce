@@ -29,15 +29,11 @@ const Paginate = ({ itemsPerPage ,products}) => {
   }
       const [itemOffset, setItemOffset] = useState(0);
 
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
     console.log(
@@ -51,12 +47,15 @@ const Paginate = ({ itemsPerPage ,products}) => {
       <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=" "
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel=" "
         renderOnZeroPageCount={null}
+        className='flex gap-2.5 mt-10 pl-0'
+        pageClassName='bg-black text-white py-[10px] px-[20px] '
+        // pageLinkClassName='p-2 bg-black'
       />
     </>
   )
