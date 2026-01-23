@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import Cards from '../Componets/Cards'
 import Container from '../Componets/Container'
-import Flex from '../Componets/Flex'
 import { FaCircle } from "react-icons/fa";
 import Breadcrumb from '../Componets/Breadcrumb'
 import Paginate from '../Componets/paginate';
+import Skeleton from '../Componets/Skeleton';
 
 
 const Shop = () => {
     const [product, setProduct] = useState([])
+    const [loading,setLoading] = useState(false)
+    const [Category,setCetegory] = useState({})
 
      useEffect(() => {
         fetch('https://dummyjson.com/products')
         .then(res => res.json())
-        .then((data) => setProduct(data.products));
+        .then((data) => 
+            setProduct(data.products),
+            setLoading(true)
+        );
     }, []);
 
+    console.log(product);
     
 
     return (
@@ -39,14 +44,14 @@ const Shop = () => {
             <div className='flex'>
             <div className='w-[20%]'>
                 <ul className='leading-8 py-3.75 text-[16px] font-normal '>
-                    <li>Woman’s Fashion</li>
-                    <li>Men’s Fashion</li>
-                    <li>Electronics</li>
-                    <li>Home & Lifestyle</li>
-                    <li>Medicine</li>
-                    <li>Baby’s & Toys</li>
-                    <li>Groceries & Pets</li>
-                    <li>Health & Beauty</li>
+                    {
+                        product.map((items)=>{
+                            return(
+                                <li>{items.category}</li>
+                            )
+                        })
+                    }
+                    
                 </ul>
 
             <ul className='leading-10 mt-3.75 myList '>
@@ -73,8 +78,14 @@ const Shop = () => {
                     )
                 })
                 } */}
+                {
+                    loading ?
+                    <Paginate itemsPerPage={6} products={product} /> 
+                    :
+                    <> <Skeleton/><Skeleton/><Skeleton/><Skeleton/><Skeleton/><Skeleton/></>
+                    
+                }
 
-                <Paginate itemsPerPage={6} products={product} />
 
 
             </div>

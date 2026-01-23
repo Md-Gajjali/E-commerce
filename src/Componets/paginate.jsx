@@ -12,7 +12,7 @@ const Paginate = ({ itemsPerPage ,products}) => {
     return (
       <>
         {currentItems &&
-          currentItems.map((items) => (
+          currentItems.map((items,idx) => (
             <Cards
                 ImgSrc={items.thumbnail}
                 title={items.title}
@@ -22,6 +22,7 @@ const Paginate = ({ itemsPerPage ,products}) => {
                 rating={items.rating}
                 DisParcentge={items.discountPercentage}
                 btn='Add To Card'
+                key={idx}
             />
           ))}
       </>
@@ -30,15 +31,11 @@ const Paginate = ({ itemsPerPage ,products}) => {
       const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
