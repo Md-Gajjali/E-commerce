@@ -7,7 +7,7 @@ import Music from '../assets/JBL.png'
 
 const MusicExperience = () => {
 
-    const conduct_date = '2026-01-18 12:00:00';
+    const conduct_date = '2026-02-18 16:00:00';
     const [time,setTime]= useState([])
     
     
