@@ -28,6 +28,8 @@ const Shop = () => {
             })
     }
 
+    
+
     useEffect(() => {
         getAllData()
     }, [])
@@ -39,11 +41,11 @@ const Shop = () => {
 
     }, [product])
 
-    const handleFilter = () => {
-
+    const handleFilter = (items) => {
+        const FilterItem = product.filter((cetegoryItem)=> cetegoryItem.category  == items )     
+        console.log(FilterItem);
+           
     }
-
-
 
     return (
         <>
@@ -69,7 +71,7 @@ const Shop = () => {
                             {
                                 category.map((items ,idx) => {
                                     return (
-                                        <li className='' key={idx} onClick={handleFilter}>{items}</li>
+                                        <li className='' key={idx} onClick={(items)=> handleFilter(items)}>{items}</li>
                                     )
                                 })
                             }
@@ -84,33 +86,12 @@ const Shop = () => {
                         </ul>
                     </div>
                     <div className='w-[80%] flex flex-wrap gap-7.75 '>
-                        {/* {
-                product.map((items,idx)=>{
-                    return(
-                    <Cards
-                        ImgSrc={items.thumbnail}
-                        title={items.title}
-                        price={Math.round(items.price - (items.price * items.discountPercentage) /100 ) }
-                        discountPrice={items.price}
-                        Review={items.reviews.length}
-                        rating={items.rating}
-                        DisParcentge={items.discountPercentage}
-                        btn='Add To Card'
-                        key={idx}
-                    />
-                    )
-                })
-                } */}
                         {
                             loading ?
                                 <Paginate itemsPerPage={6} products={product} />
                                 :
                                 <> <Skeleton /><Skeleton /><Skeleton /><Skeleton /><Skeleton /><Skeleton /></>
-
                         }
-
-
-
                     </div>
                 </div>
             </Container>
