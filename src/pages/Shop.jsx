@@ -5,30 +5,37 @@ import Breadcrumb from '../Componets/Breadcrumb'
 import Paginate from '../Componets/paginate';
 import Skeleton from '../Componets/Skeleton';
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { GetProducts } from '../ProductSlice';
+
 
 const Shop = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
     const [category, setCetegory] = useState([])
 
+    // const count = useSelector((state) => state.counter.value)
+    
     //  useEffect(() => {
-    //     fetch('https://dummyjson.com/products')
+        //     fetch('https://dummyjson.com/products')
     //     .then(res => res.json())
     //     .then((data) => 
     //         setProduct(data.products),
     //         setLoading(true)
     //     );
     // }, []);
+    const dispatch = useDispatch()
 
     async function getAllData() {
         await axios.get('https://dummyjson.com/products')
             .then((res) => {
                 setProduct(res.data.products)
                 setLoading(true)
+                dispatch(GetProducts(res.data.products))
             })
-    }
+        }
+        
 
-    
 
     useEffect(() => {
         getAllData()
@@ -38,13 +45,11 @@ const Shop = () => {
     useEffect(() => {
         const UniqueCetegory = [...new Set(product.map((item) => item.category))]
         setCetegory(UniqueCetegory);
-
     }, [product])
 
     const handleFilter = (items) => {
-        const FilterItem = product.filter((cetegoryItem)=> cetegoryItem.category  == items )     
+        const FilterItem = product.filter((cetegoryItem) => cetegoryItem.category == items)
         console.log(FilterItem);
-           
     }
 
     return (
@@ -69,9 +74,9 @@ const Shop = () => {
                     <div className='w-[20%]'>
                         <ul className='leading-8 py-3.75 text-[16px] font-normal '>
                             {
-                                category.map((items ,idx) => {
+                                category.map((items, idx) => {
                                     return (
-                                        <li className='' key={idx} onClick={(items)=> handleFilter(items)}>{items}</li>
+                                        <li className='' key={idx} onClick={() => handleFilter(items)}>{items}</li>
                                     )
                                 })
                             }
@@ -88,7 +93,7 @@ const Shop = () => {
                     <div className='w-[80%] flex flex-wrap gap-7.75 '>
                         {
                             loading ?
-                                <Paginate itemsPerPage={6} products={product} />
+                                <Paginate itemsPerPage={6} />
                                 :
                                 <> <Skeleton /><Skeleton /><Skeleton /><Skeleton /><Skeleton /><Skeleton /></>
                         }
