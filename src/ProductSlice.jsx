@@ -5,16 +5,19 @@ const initialState = {
 }
 
 export const ProductSlice = createSlice({
-  name: 'counter',
+  name: 'value',
   initialState,
   reducers: {
     GetProducts:(state,action)=>{
+        state.value = action.payload
+    },
+    FilterReducer:(state,action)=>{
         state.value = action.payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { GetProducts } = ProductSlice.actions
+export const { GetProducts,FilterReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer

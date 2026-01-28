@@ -7,7 +7,6 @@ import Home from './pages/Home.jsx';
 import RoutLayout from './RoutLayout.jsx';
 import shop from './pages/shop.jsx';
 import About from './pages/About.jsx';
-import Contact from './pages/Contact.jsx';
 import { store } from '../src/store.js'
 import { Provider } from 'react-redux'
 
@@ -18,9 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "Shop", Component: shop },
-      { path: "Contact", Component: Contact },
       { path: "About", Component: About },
-      
     ],
   },
 ])

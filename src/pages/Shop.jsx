@@ -6,7 +6,7 @@ import Paginate from '../Componets/paginate';
 import Skeleton from '../Componets/Skeleton';
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { GetProducts } from '../ProductSlice';
+import { FilterReducer, GetProducts } from '../ProductSlice';
 
 
 const Shop = () => {
@@ -15,9 +15,9 @@ const Shop = () => {
     const [category, setCetegory] = useState([])
 
     // const count = useSelector((state) => state.counter.value)
-    
+
     //  useEffect(() => {
-        //     fetch('https://dummyjson.com/products')
+    //     fetch('https://dummyjson.com/products')
     //     .then(res => res.json())
     //     .then((data) => 
     //         setProduct(data.products),
@@ -33,8 +33,8 @@ const Shop = () => {
                 setLoading(true)
                 dispatch(GetProducts(res.data.products))
             })
-        }
-        
+    }
+
 
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const Shop = () => {
 
     const handleFilter = (items) => {
         const FilterItem = product.filter((cetegoryItem) => cetegoryItem.category == items)
-        console.log(FilterItem);
+        dispatch(FilterReducer(FilterItem))
     }
 
     return (
@@ -76,7 +76,7 @@ const Shop = () => {
                             {
                                 category.map((items, idx) => {
                                     return (
-                                        <li className='' key={idx} onClick={() => handleFilter(items)}>{items}</li>
+                                        <li className='cursor-pointer' key={idx} onClick={() => handleFilter(items)}>{items}</li>
                                     )
                                 })
                             }

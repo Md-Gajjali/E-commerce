@@ -58,9 +58,8 @@ const Paginate = ({ itemsPerPage  }) => {
         pageCount={pageCount}
         previousLabel=" "
         renderOnZeroPageCount={null}
-        className='flex gap-2.5 mt-10 pl-0'
+        className='absolute -bottom-19 left-55 flex gap-2.5 '
         pageClassName='bg-black text-white py-[10px] px-[20px] '
-        // pageLinkClassName='p-2 bg-black'
       />
     </>
   )
