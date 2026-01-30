@@ -64,12 +64,10 @@ const Shop = () => {
                     <h3 className=' font-pop font-bold text-[20px] '>Shop by Category</h3>
                     <div className='flex justify-end  gap-2 items-center '>
                         <label htmlFor="text"> Show: </label>
-                        <select onChange={(e)=>{setValue(e.target.value)}} name="cars" id="cars" className='border  border-[#D9D9D9] w-24.75 text-center'>
-                            <option value="volvo">6</option>
-                            <option value="saab">10</option>
-                            <option value="mercedes">14</option>
-                            <option value="audi">20</option>
-                            <option value="audi">All</option>
+                        <select onChange={(e)=>{setValue(e.target.value)}}  className='border  border-[#D9D9D9] w-24.75 text-center'>
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
                         </select>
                     </div>
                 </div>
@@ -99,7 +97,7 @@ const Shop = () => {
                     <div className='w-[80%] flex flex-wrap gap-7.75 '>
                         {
                             loading ?
-                                <Paginate itemsPerPage={6} />
+                                <Paginate itemsPerPage={value} />
                                 :
                                 <> <Skeleton /><Skeleton /><Skeleton /><Skeleton /><Skeleton /><Skeleton /></>
                         }

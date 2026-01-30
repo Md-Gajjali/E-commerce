@@ -14,8 +14,8 @@
   --color-primary: '#DB4444';
   --color-blackPrimary: #313131;
   --font-Inter: "Inter", sans-serif;
-  --color-primary:#DB4444;
   --font-pop:"Poppins", sans-serif;
+  --color-comon:"#3736367b"
 }
 
 @layer utilities {
