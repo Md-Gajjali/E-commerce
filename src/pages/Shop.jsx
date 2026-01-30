@@ -13,6 +13,10 @@ const Shop = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
     const [category, setCetegory] = useState([])
+    const [value,setValue] = useState(6)
+
+    console.log(value);
+    
 
     // const count = useSelector((state) => state.counter.value)
 
@@ -35,7 +39,7 @@ const Shop = () => {
             })
     }
 
-
+    
 
     useEffect(() => {
         getAllData()
@@ -60,7 +64,7 @@ const Shop = () => {
                     <h3 className=' font-pop font-bold text-[20px] '>Shop by Category</h3>
                     <div className='flex justify-end  gap-2 items-center '>
                         <label htmlFor="text"> Show: </label>
-                        <select name="cars" id="cars" className='border  border-[#D9D9D9] w-24.75 text-center'>
+                        <select onChange={(e)=>{setValue(e.target.value)}} name="cars" id="cars" className='border  border-[#D9D9D9] w-24.75 text-center'>
                             <option value="volvo">6</option>
                             <option value="saab">10</option>
                             <option value="mercedes">14</option>
@@ -73,6 +77,8 @@ const Shop = () => {
                 <div className='flex'>
                     <div className='w-[20%]'>
                         <ul className='leading-8 py-3.75 text-[16px] font-normal '>
+                                <li className='cursor-pointer'  onClick={() => dispatch(GetProducts(product))}>All Product</li>
+
                             {
                                 category.map((items, idx) => {
                                     return (

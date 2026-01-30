@@ -11,8 +11,6 @@ const Paginate = ({ itemsPerPage  }) => {
   const AllProduct = useSelector((state) => state.AllProducts.value)
   const items = AllProduct;
 
-
-  
   function Items({ currentItems }) {
 
       
@@ -36,7 +34,9 @@ const Paginate = ({ itemsPerPage  }) => {
       </>
     );
   }
-      const [itemOffset, setItemOffset] = useState(0);
+
+  
+  const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = items.slice(itemOffset, endOffset);
@@ -64,5 +64,6 @@ const Paginate = ({ itemsPerPage  }) => {
     </>
   )
 }
+
 
 export default Paginate
