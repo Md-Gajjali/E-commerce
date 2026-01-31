@@ -15,7 +15,6 @@ const Shop = () => {
     const [category, setCetegory] = useState([])
     const [value,setValue] = useState(6)
 
-    console.log(value);
     
 
     // const count = useSelector((state) => state.counter.value)
@@ -38,8 +37,6 @@ const Shop = () => {
                 dispatch(GetProducts(res.data.products))
             })
     }
-
-    
 
     useEffect(() => {
         getAllData()

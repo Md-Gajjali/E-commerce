@@ -16,10 +16,25 @@ import console from '../assets/console.png'
 import LAD from '../assets/LAD.png'
 import keyboard from '../assets/keyBoard.png'
 import kedara from '../assets/Frame 570.png'
-
+import axios from 'axios'
+import { useParams } from "react-router";
 
 
 const ProductDetails = () => {
+    let params = useParams();
+
+    
+
+    // async function getAllData() {
+    //     await axios.get(`https://dummyjson.com/products/${id}`)
+    //         .then((res) => {
+    //             setProduct(res.data.products)
+    //         })
+    // }
+
+    // useEffect(() => {
+    //     getAllData()
+    // }, [])
 
 
     return (

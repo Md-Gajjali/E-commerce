@@ -9,11 +9,12 @@ import { useNavigate } from "react-router";
 
 
 const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn, disHidden, rating , id }) => {
-  let navigate = useNavigate();
   
+  let navigate = useNavigate();
   const handleProductDetails = () => {
-    navigate(`ProductDetails${id}`)
+    navigate(`/ProductDetails/${id}`)
   }
+
   return (
     <>
       <div className='w-67.5 mt-10 group ' onClick={handleProductDetails}>

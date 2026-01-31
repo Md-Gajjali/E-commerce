@@ -5,12 +5,12 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Home from './pages/Home.jsx';
 import RoutLayout from './RoutLayout.jsx';
-import shop from './pages/shop.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import { store } from '../src/store.js'
 import { Provider } from 'react-redux'
-import ProductDetails from './Pages/ProductDetails.jsx';
+import ProductDetails from './pages/ProductDetails.jsx';
+import Shop from './pages/Shop.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     Component: RoutLayout,
     children: [
       { index: true, Component: Home },
-      { path: "Shop", Component: shop },
+      { path: "Shop", Component: Shop },
       { path: "Contact", Component: Contact },
       { path: "About", Component: About },
       { path: "ProductDetails/:id", Component: ProductDetails },
