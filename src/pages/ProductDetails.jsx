@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../Componets/Breadcrumb'
 import Flex from '../Componets/Flex'
 import Container from '../Componets/Container'
@@ -10,10 +10,18 @@ import { GoPlus } from "react-icons/go";
 import { IoMdRemove } from "react-icons/io";
 import { TbTruckDelivery } from "react-icons/tb";
 import { TfiReload } from "react-icons/tfi";
+import SecHeading from '../Componets/SecHeading'
+import Cards from '../Componets/Cards'
+import console from '../assets/console.png'
+import LAD from '../assets/LAD.png'
+import keyboard from '../assets/keyBoard.png'
+import kedara from '../assets/Frame 570.png'
 
 
 
 const ProductDetails = () => {
+
+
     return (
         <div className='mt-20'>
             <Container>
@@ -44,8 +52,8 @@ const ProductDetails = () => {
 
                         <Flex className='items-center mt-6'>
                             <h4 className='font-Inter font-medium text-[20px] text-black'>Color :</h4>
-                            <GoDotFill className='border-black text-[#A0BCE0] w-10 h-10 mt-1'/>
-                            <GoDotFill className='border-black text-[#E07575] w-10 h-10 mt-1'/>
+                            <GoDotFill className='border-black text-[#A0BCE0] w-10 h-10 mt-1' />
+                            <GoDotFill className='border-black text-[#E07575] w-10 h-10 mt-1' />
                         </Flex>
                         <div className='flex gap-3 mt-6'>
                             <h4 className='font-Inter font-medium text-[20px] '>Size:</h4>
@@ -70,7 +78,7 @@ const ProductDetails = () => {
                         <div className='mt-6 flex'>
                             <div className='w-10 h-11 flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer'><IoMdRemove /></div>
                             <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>2</div>
-                            <div className='bg-[#DB4444] w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'><GoPlus /></div>
+                            <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'><GoPlus /></div>
                         </div>
                         <div className='w-99.75 border-[#929395] border-2 mt-10 py-6 px-4 rounded-sm '>
                             <Flex className='items-center gap-7'>
@@ -80,7 +88,7 @@ const ProductDetails = () => {
                                     <p className='font-pop font-medium text-[12px] '>Enter your postal code for Delivery Availability</p>
                                 </div>
                             </Flex>
-                            
+
                         </div>
                         <div className='w-99.75 border-[#929395] border-2 rounded-b-sm  py-6 px-4 border-t-0 -mt-2'>
                             <Flex className='items-center gap-7  mt-4 '>
@@ -91,7 +99,50 @@ const ProductDetails = () => {
                                 </div>
                             </Flex>
                         </div>
+
                     </div>
+                </Flex>
+                <SecHeading
+                    title='Related Item'
+                    className='mt-37.5'
+                />
+                <Flex className='justify-between'>
+                    <Cards
+                        ImgSrc={console}
+                        title='HAVIT HV-G92 Gamepad'
+                        price='120'
+                        discountPrice='160'
+                        DisParcentge='40%'
+                        Review='88'
+                        btn='Add to Card'
+                    />
+                    <Cards
+                        ImgSrc={keyboard}
+                        title='HAVIT HV-G92 Gamepad'
+                        price='120'
+                        discountPrice='160'
+                        DisParcentge='40%'
+                        Review='88'
+                        btn='Add to Card'
+                    />
+                    <Cards
+                        ImgSrc={LAD}
+                        title='HAVIT HV-G92 Gamepad'
+                        price='120'
+                        discountPrice='160'
+                        DisParcentge='40%'
+                        Review='88'
+                        btn='Add to Card'
+                    />
+                    <Cards
+                        ImgSrc={kedara}
+                        title='HAVIT HV-G92 Gamepad'
+                        price='120'
+                        discountPrice='160'
+                        DisParcentge='40%'
+                        Review='88'
+                        btn='Add to Card'
+                    />
                 </Flex>
             </Container>
         </div>
