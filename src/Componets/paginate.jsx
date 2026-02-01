@@ -7,13 +7,13 @@ import { useSelector} from 'react-redux'
 
 const Paginate = ({ itemsPerPage  }) => {
 
-  
+
   const AllProduct = useSelector((state) => state.AllProducts.value)
   const items = AllProduct;
 
   function Items({ currentItems }) {
 
-      
+
 
     return (
       <>
@@ -36,7 +36,7 @@ const Paginate = ({ itemsPerPage  }) => {
     );
   }
 
-  
+
   const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
@@ -68,3 +68,4 @@ const Paginate = ({ itemsPerPage  }) => {
 
 
 export default Paginate
+
