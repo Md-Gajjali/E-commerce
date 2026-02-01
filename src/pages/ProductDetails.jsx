@@ -12,7 +12,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { TfiReload } from "react-icons/tfi";
 import SecHeading from '../Componets/SecHeading'
 import Cards from '../Componets/Cards'
-import console from '../assets/console.png'
+import consoleImg from '../assets/console.png'
 import LAD from '../assets/LAD.png'
 import keyboard from '../assets/keyBoard.png'
 import kedara from '../assets/Frame 570.png'
@@ -21,20 +21,26 @@ import { useParams } from "react-router";
 
 
 const ProductDetails = () => {
-    let params = useParams();
 
-    
 
-    // async function getAllData() {
-    //     await axios.get(`https://dummyjson.com/products/${id}`)
-    //         .then((res) => {
-    //             setProduct(res.data.products)
-    //         })
-    // }
+    let {id} = useParams();
 
-    // useEffect(() => {
-    //     getAllData()
-    // }, [])
+    const [product,setProduct] = useState([])
+    console.log(product)
+
+    async function getAllData() {
+        await axios.get(`https://dummyjson.com/products/${id}`)
+            .then((res) => {
+                // setProduct(res)
+                setProduct(res.data);
+                
+            })
+            
+    }
+
+    useEffect(() => {
+        getAllData()
+    }, [id])
 
 
     return (
@@ -50,19 +56,19 @@ const ProductDetails = () => {
                             <img className='py-11 ' src={img} alt="" />
                         </div>
                         <div>
-                            <img className='w-125 h-170' src={imgg} alt="" />
+                            <img className='w-125 h-170' src={product.thumbnail} alt="" />
                         </div>
                     </div>
                     <div className='h-150'>
-                        <h1 className='font-Inter font-semibold text-[28px] w-84 '>Havic HV G-92 Gamepad</h1>
+                        <h1 className='font-Inter font-semibold text-[28px] w-84 '>{product.title}</h1>
                         <Flex className='items-center gap-1 mt-4'>
-                            <Rate allowHalf defaultValue={3} />
+                            <Rate allowHalf defaultValue={3}  />
                             <p className='font-pop font-medium text-[14px] text-[#3736367b] border-r-2   px-2'>(150 Reviews)</p>
                             <p className='text-[#00FF66]  '>In Stock</p>
                         </Flex>
 
-                        <h3 className='font-Inter font-medium text-2xl text-black mt-4.5'>$ 192.00</h3>
-                        <p className='w-93  font-pop font-medium text-[14px] text-black mt-6 leadin-21'>PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
+                        <h3 className='font-Inter font-medium text-2xl text-black mt-4.5'>$ {product.price}</h3>
+                        <p className='w-93  font-pop font-medium text-[14px] text-black mt-6 leadin-21'>{product.description}</p>
                         <hr className='w-100 mt-6 text-[#3736367b] ' />
 
                         <Flex className='items-center mt-6'>
@@ -123,7 +129,7 @@ const ProductDetails = () => {
                 />
                 <Flex className='justify-between'>
                     <Cards
-                        ImgSrc={console}
+                        ImgSrc={consoleImg}
                         title='HAVIT HV-G92 Gamepad'
                         price='120'
                         discountPrice='160'
