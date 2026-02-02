@@ -15,11 +15,15 @@ const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn,
     navigate(`/ProductDetails/${id}`)
   }
 
+  const handleAddToCart = () => {
+    navigate(`/CartItems`)
+  }
+
   return (
     <>
-      <div className='w-67.5 mt-10 group ' onClick={handleProductDetails}>
+      <div className='w-67.5 mt-10 group ' >
         <div className='relative overflow-hidden '>
-          <img src={ImgSrc} alt="" className='cursor-pointer' />
+          <img src={ImgSrc} alt="" className='cursor-pointer' onClick={handleProductDetails}/>
           <div className='discount'>
             <h3 className={`absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
               text-xs text-white rounded-sm  ${disHidden}`}>-{DisParcentge}</h3>
@@ -32,7 +36,7 @@ const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn,
               </div>
             </div>
           </div>
-          <button className='-bottom-10 group-hover:bottom-0 duration-300 ease-linear  absolute bg-black text-white block text-[16px] w-full py-2 px-20 font-pop  cursor-pointer '>{btn}</button>
+          <button onClick={handleAddToCart} className='-bottom-10 group-hover:bottom-0 duration-300 ease-linear  absolute bg-black text-white block text-[16px] w-full py-2 px-20 font-pop  cursor-pointer '>{btn}</button>
         </div>
 
         <h2 className='py-4'>{title}</h2>
