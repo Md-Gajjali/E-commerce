@@ -59,10 +59,13 @@ const Navber = () => {
                   <div className=' text-[32px] gap-4 flex '>
                       <CiHeart />
                       {/* <FaOpencart />  */}
+                      <NavLink to='CartItems' >
+                        
                       <div className='relative'>
                         <IoCartOutline />
                           <div className='absolute -top-1  -right-2 w-5 h-5 text-xs  rounded-full bg-primary flex justify-center items-center font-semibold text-white'>{Product.length}</div>
                       </div>
+                      </NavLink>
 
                   </div>
                 </div>
