@@ -3,7 +3,6 @@ import Breadcrumb from '../Componets/Breadcrumb'
 import Flex from '../Componets/Flex'
 import Container from '../Componets/Container'
 import img from '../assets/console2.png'
-import imgg from '../assets/console3.png'
 import { Rate } from 'antd';
 import { GoDotFill } from "react-icons/go";
 import { GoPlus } from "react-icons/go";
@@ -26,17 +25,17 @@ const ProductDetails = () => {
     let {id} = useParams();
 
     const [product,setProduct] = useState([])
-    console.log(product)
+    const [productImgese ,setproductImgese] = useState([])
+    console.log(productImgese)
 
     async function getAllData() {
         await axios.get(`https://dummyjson.com/products/${id}`)
             .then((res) => {
-                // setProduct(res)
                 setProduct(res.data);
+                setproductImgese(res.data.images)
                 
             })
-            
-    }
+        }
 
     useEffect(() => {
         getAllData()
@@ -50,20 +49,24 @@ const ProductDetails = () => {
                 <Flex className=' justify-between mt-20 '>
                     <div className='flex  gap-7.5  items-center '>
                         <div className='h-170'>
-                            <img src={img} alt="" />
-                            <img className='py-11 ' src={img} alt="" />
-                            <img src={img} alt="" />
-                            <img className='py-11 ' src={img} alt="" />
+                            {
+                                productImgese.map((item)=>{
+                                    return(
+                                        <img className='w-42.5 h-34.5 ' src={item} alt="" />
+
+                                    )
+                                })
+                            }
                         </div>
                         <div>
-                            <img className='w-125 h-170' src={product.thumbnail} alt="" />
+                            <img className='w-125  ' src={product.thumbnail} alt="" />
                         </div>
                     </div>
                     <div className='h-150'>
                         <h1 className='font-Inter font-semibold text-[28px] w-84 '>{product.title}</h1>
                         <Flex className='items-center gap-1 mt-4'>
-                            <Rate allowHalf defaultValue={3}  />
-                            <p className='font-pop font-medium text-[14px] text-[#3736367b] border-r-2   px-2'>(150 Reviews)</p>
+                            <Rate allowHalf value={product.rating || 0} />
+                            <p className='font-pop font-medium text-[14px] text-[#3736367b] border-r-2   px-2'>({product.reviews ? product.reviews.length : null } Reviews)</p>
                             <p className='text-[#00FF66]  '>In Stock</p>
                         </Flex>
 
