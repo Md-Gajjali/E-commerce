@@ -7,12 +7,18 @@ import { CiHeart } from "react-icons/ci";
 import { SlMagnifier } from "react-icons/sl";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router";
+import { useSelector } from 'react-redux';
+import { IoCartOutline } from "react-icons/io5";
 
 
 
 const Navber = () => {
 
   const [show,setShow]=useState(false)
+  const Product = useSelector((state) => state.AllProducts.cart)
+
+  console.log(Product)
+
 
   const handleClick = ()=> {
     setShow(!show) 
@@ -52,7 +58,12 @@ const Navber = () => {
                   </div>
                   <div className=' text-[32px] gap-4 flex '>
                       <CiHeart />
-                      <FaOpencart />
+                      {/* <FaOpencart />  */}
+                      <div className='relative'>
+                        <IoCartOutline />
+                          <div className='absolute -top-1  -right-2 w-5 h-5 text-xs  rounded-full bg-primary flex justify-center items-center font-semibold text-white'>{Product.length}</div>
+                      </div>
+
                   </div>
                 </div>
                   <FaBarsStaggered  className='lg:hidden block' onClick={handleClick}/>

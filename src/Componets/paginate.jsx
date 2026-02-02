@@ -22,6 +22,7 @@ const Paginate = ({ itemsPerPage  }) => {
             <Cards
                 ImgSrc={items.thumbnail}
                 id={items.id}
+                productDetails={items}
                 title={items.title}
                 price={Math.round(items.price - (items.price * items.discountPercentage) /100 ) }
                 discountPrice={items.price}
