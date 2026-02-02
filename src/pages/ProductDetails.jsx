@@ -17,6 +17,8 @@ import keyboard from '../assets/keyBoard.png'
 import kedara from '../assets/Frame 570.png'
 import axios from 'axios'
 import { useParams } from "react-router";
+import Button from '../Componets/Button'
+import { FiHeart } from "react-icons/fi";
 
 
 const ProductDetails = () => {
@@ -26,14 +28,15 @@ const ProductDetails = () => {
 
     const [product,setProduct] = useState([])
     const [productImgese ,setproductImgese] = useState([])
+    const [loading,setLoading] = useState(false)
     console.log(productImgese)
 
     async function getAllData() {
         await axios.get(`https://dummyjson.com/products/${id}`)
             .then((res) => {
                 setProduct(res.data);
+                // setLoading(true)
                 setproductImgese(res.data.images)
-                
             })
         }
 
@@ -99,14 +102,19 @@ const ProductDetails = () => {
                                 </div>
                             </Flex>
                         </div>
-                        <div className='mt-6 flex'>
-                            <div className='w-10 h-11 flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer'><IoMdRemove /></div>
+                        <div className='mt-6 flex gap-4'>
+                            <div className='flex'>
+
+                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer'><IoMdRemove /></div>
                             <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>2</div>
                             <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'><GoPlus /></div>
+                            </div>
+                             <Button className='bg-primary'>Buy now</Button>
+                             <button className='py-2 px-4 rounded-sm cursor-pointer border-[#929395] border-2  text-black '><FiHeart /></button>
                         </div>
                         <div className='w-99.75 border-[#929395] border-2 mt-10 py-6 px-4 rounded-sm '>
                             <Flex className='items-center gap-7'>
-                                <h4 className='text-5xl text-black w-10'><TbTruckDelivery /></h4>
+                                <h4 className='text-5xl text-black w-10 '><TbTruckDelivery  /></h4>
                                 <div>
                                     <p className='font-pop font-medium text-[16px] '>Free Delivery</p>
                                     <p className='font-pop font-medium text-[12px] '>Enter your postal code for Delivery Availability</p>
