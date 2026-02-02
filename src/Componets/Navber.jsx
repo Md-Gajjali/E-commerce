@@ -17,9 +17,6 @@ const Navber = () => {
   const [show,setShow]=useState(false)
   const Product = useSelector((state) => state.AllProducts.cart)
 
-  console.log(Product)
-
-
   const handleClick = ()=> {
     setShow(!show) 
   }

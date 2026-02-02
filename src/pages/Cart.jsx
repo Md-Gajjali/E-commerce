@@ -5,8 +5,11 @@ import CartItems from '../Componets/CartItems'
 import img from '../assets/LAD.png'
 import Flex from '../Componets/Flex'
 import Button from '../Componets/Button'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
+  const CartProduct = useSelector((state) => state.AllProducts.cart)
+
   return (
     <div>
       <Container>
@@ -20,21 +23,18 @@ const Cart = () => {
           <h4 className='font-normal font-pop text-[16px] '>subtotal</h4>
         </div>
         <div className=''>
-          <CartItems
-            ImgSrc={img}
-            productName='LCD Monitor'
-            price='650'
-            subtotal='650'
-
-          />
-          <CartItems
-            ImgSrc={img}
-            productName='Product'
-            price='1150'
-            subtotal='1150'
-
-
-          />
+          {
+            CartProduct.map((item) => {
+              return (
+                <CartItems
+                  ImgSrc={item.thumbnail}
+                  productName={item.title}
+                  price={item.price}
+                  subtotal={item.price}
+                />
+              )
+            })
+          }
         </div>
         <Flex className='justify-between mt-6'>
           <Button className='border text-black!'>Return To Shop</Button>

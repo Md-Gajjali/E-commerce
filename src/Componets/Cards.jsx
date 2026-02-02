@@ -5,23 +5,28 @@ import { FiEye } from "react-icons/fi";
 import Flex from './Flex';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CartReducer } from '../ProductSlice';
 
 
 
 const Cards = ({ ImgSrc, title, discountPrice, DisParcentge, price, Review, btn, disHidden,productDetails ,rating , id }) => {
   
+  const dispatch = useDispatch()
   let navigate = useNavigate();
+  const CartProduct = useSelector((state) => state.AllProducts.cart)
+
   const handleProductDetails = () => {
     navigate(`/ProductDetails/${id}`)
   }
-  console.log(productDetails)
 
-   const dispatch = useDispatch()
   const handleAddToCart = () => {
-    dispatch(CartReducer(productDetails))
+    const Exist = CartProduct.find((item)=> item.id === productDetails.id)
+    if (!Exist) {
+      dispatch(CartReducer(productDetails))
+    }
   }
+
 
   return (
     <>
