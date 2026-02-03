@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   value: [],
   cart: [] ,
+  Wishlist: [] ,
 }
 
 export const ProductSlice = createSlice({
@@ -18,10 +19,13 @@ export const ProductSlice = createSlice({
     CartReducer:(state,action)=>{
         state.cart = [...state.cart , action.payload]
     },
+    WishlistReducer:(state,action)=>{
+        state.Wishlist = [...state.Wishlist, action.payload]
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { GetProducts,FilterReducer ,CartReducer } = ProductSlice.actions
+export const { GetProducts,FilterReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer

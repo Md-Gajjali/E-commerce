@@ -17,7 +17,7 @@ const Cart = () => {
         <div className=' bg-white/5 w-full flex justify-between items-center px-10 py-6
             border border-[#F2F4F7] rounded-sm
             shadow-[inset_0px_2px_4px_rgba(184,196,243,0.25),0px_6px_16px_rgba(16,24,40,0.15)]'>
-          <h3 className='font-normal font-pop text-[16px] w-51 '>productName</h3>
+          <h3 className='font-normal font-pop text-[16px] w-60'>productName</h3>
           <h3 className='font-normal font-pop text-[16px] '>price</h3>
           <h4 className='font-normal font-pop text-[16px] '>Quantity</h4>
           <h4 className='font-normal font-pop text-[16px] '>subtotal</h4>

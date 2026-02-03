@@ -1,11 +1,11 @@
 import ReactPaginate from 'react-paginate';
 import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
-import { useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 
-const Paginate = ({ itemsPerPage  }) => {
+const Paginate = ({ itemsPerPage }) => {
 
 
   const AllProduct = useSelector((state) => state.AllProducts.value)
@@ -18,19 +18,19 @@ const Paginate = ({ itemsPerPage  }) => {
     return (
       <>
         {currentItems &&
-          currentItems.map((items,idx) => (
+          currentItems.map((items, idx) => (
             <Cards
-                ImgSrc={items.thumbnail}
-                id={items.id}
-                productDetails={items}
-                title={items.title}
-                price={Math.round(items.price - (items.price * items.discountPercentage) /100 ) }
-                discountPrice={items.price}
-                Review={items.reviews.length}
-                rating={items.rating}
-                DisParcentge={items.discountPercentage}
-                btn='Add To Card'
-                key={idx}
+              ImgSrc={items.thumbnail}
+              id={items.id}
+              productDetails={items}
+              title={items.title}
+              price={Math.round(items.price - (items.price * items.discountPercentage) / 100)}
+              discountPrice={items.price}
+              Review={items.reviews ? items.reviews.length : null}
+              rating={items.rating || 0}
+              DisParcentge={items.discountPercentage}
+              btn='Add To Card'
+              key={idx}
             />
           ))}
       </>
