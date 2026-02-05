@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../Componets/Container'
 import Flex from '../Componets/Flex'
 import Button from '../Componets/Button'
 import { useSelector } from 'react-redux'
 import Cards from '../Componets/Cards'
-import { BsTrash3 } from "react-icons/bs";
+import SecHeading from '../Componets/SecHeading'
+import lad from '../assets/LAD.png'
 
 const Wishlist = () => {
+
     const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
-    console.log(Whishlist)
 
 
     return (
@@ -29,13 +30,63 @@ const Wishlist = () => {
                                     discountPrice={item.price}
                                     DisParcentge={item.discountPercentage}
                                     btn='Add TO Card'
-                                    disEye='hidden'                                   
+                                    disEye='hidden'
                                     disRating='hidden'
                                     disReview='hidden'
                                 />
                             )
                         })
                     }
+                </div>
+                <div className='mt-20 flex items-center   justify-between'>
+                    <SecHeading title='Just For You' />
+                    <Button className='border text-black! '>See All</Button>
+                </div>
+                <div className='flex justify-between flex-wrap '>
+                    <Cards
+                        ImgSrc={lad}
+                        title='no title'
+                        price='1200'
+                        discountPrice='400'
+                        DisParcentge='70'
+                        btn='Add TO Card'
+                        disEye='hidden'
+                        disRating='hidden'
+                        disReview='hidden'
+                    />
+                     <Cards
+                        ImgSrc={lad}
+                        title='no title'
+                        price='1200'
+                        discountPrice='400'
+                        DisParcentge='70'
+                        btn='Add TO Card'
+                        disEye='hidden'
+                        disRating='hidden'
+                        disReview='hidden'
+                    />
+                     <Cards
+                        ImgSrc={lad}
+                        title='no title'
+                        price='1200'
+                        discountPrice='400'
+                        DisParcentge='70'
+                        btn='Add TO Card'
+                        disEye='hidden'
+                        disRating='hidden'
+                        disReview='hidden'
+                    /> 
+                    <Cards
+                        ImgSrc={lad}
+                        title='no title'
+                        price='1200'
+                        discountPrice='400'
+                        DisParcentge='70'
+                        btn='Add TO Card'
+                        disEye='hidden'
+                        disRating='hidden'
+                        disReview='hidden'
+                    />
                 </div>
             </Container>
         </div>

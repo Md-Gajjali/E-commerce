@@ -15,6 +15,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disRev
   const dispatch = useDispatch()
   let navigate = useNavigate();
   const CartProduct = useSelector((state) => state.AllProducts.cart)
+  const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
+  
 
   const handleProductDetails = () => {
     navigate(`/ProductDetails/${id}`)
@@ -29,7 +31,10 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disRev
 
 
   const handleWishlist = () => {
-    dispatch(WishlistReducer(productDetails))
+    const exit = Whishlist.find((item)=> item.id === productDetails.id)
+    if (!exit) {
+      dispatch(WishlistReducer(productDetails))
+    }
   }
 
 
@@ -47,8 +52,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disRev
               <div className=' h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25'>
                 <FaRegHeart className={`${disHeart} text-2xl  cursor-pointer`} onClick={handleWishlist} />
               </div>
-              <div className='h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25'>
-                <FiEye className={`${disEye} text-2xl `} />
+              <div className={`${disEye} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
+                <FiEye className='text-2xl '/>
               </div>
             </div>
           </div>
