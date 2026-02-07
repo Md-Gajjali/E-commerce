@@ -29,7 +29,7 @@ const ProductDetails = () => {
     const [product,setProduct] = useState([])
     const [productImgese ,setproductImgese] = useState([])
     const [loading,setLoading] = useState(false)
-    console.log(productImgese)
+    const [incre,setIncre]=useState(0)
 
     async function getAllData() {
         await axios.get(`https://dummyjson.com/products/${id}`)
@@ -43,6 +43,17 @@ const ProductDetails = () => {
     useEffect(() => {
         getAllData()
     }, [id])
+
+
+    const handleIncrement = () => {
+        setIncre(incre + 1)
+    }
+
+    const handleDicrement = () => {
+        if (incre > 0) {
+            setIncre(incre - 1)
+        }
+    }
 
 
     return (
@@ -105,9 +116,9 @@ const ProductDetails = () => {
                         <div className='mt-6 flex gap-4'>
                             <div className='flex'>
 
-                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer'><IoMdRemove /></div>
-                            <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>2</div>
-                            <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'><GoPlus /></div>
+                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer' onClick={handleDicrement}><IoMdRemove /></div>
+                            <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>{incre}</div>
+                            <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'  onClick={handleIncrement}><GoPlus /></div>
                             </div>
                              <Button className='bg-primary'>Buy now</Button>
                              <button className='py-2 px-4 rounded-sm cursor-pointer border-[#929395] border-2  text-black '><FiHeart /></button>
