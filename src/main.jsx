@@ -11,12 +11,13 @@ import { store } from '../src/store.js'
 import { Provider } from 'react-redux'
 import ProductDetails from './pages/ProductDetails.jsx';
 import Shop from './pages/Shop.jsx';
-import CartItems from './Componets/CartItems.jsx';
 import Cart from './pages/Cart.jsx';
 import Wishlist from './pages/Wishlist.jsx';
 import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import BillingDetails from './pages/BillingDetails.jsx';
+import { ToastContainer} from 'react-toastify';
+
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
      <Provider store={store}>
+      <ToastContainer />
       <RouterProvider router={router} />
     </Provider>,
   </StrictMode>,

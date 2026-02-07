@@ -16,17 +16,6 @@ const Shop = () => {
     const [value,setValue] = useState(6)
 
     
-
-    // const count = useSelector((state) => state.counter.value)
-
-    //  useEffect(() => {
-    //     fetch('https://dummyjson.com/products')
-    //     .then(res => res.json())
-    //     .then((data) => 
-    //         setProduct(data.products),
-    //         setLoading(true)
-    //     );
-    // }, []);
     const dispatch = useDispatch()
 
     async function getAllData() {

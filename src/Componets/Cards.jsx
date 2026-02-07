@@ -7,35 +7,52 @@ import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { CartReducer, WishlistReducer } from '../ProductSlice';
+  import {  toast ,Bounce} from 'react-toastify';
 
 
 
-const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disReview, DisParcentge, price, Review, btn, disHidden,productDetails ,rating , id }) => {
-  
-  const dispatch = useDispatch()
+const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disReview, DisParcentge, price, Review, btn, disHidden, productDetails, rating, id }) => {
+
   let navigate = useNavigate();
+  const dispatch = useDispatch()
   const CartProduct = useSelector((state) => state.AllProducts.cart)
   const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
-  
+
 
   const handleProductDetails = () => {
     navigate(`/ProductDetails/${id}`)
   }
 
   const handleAddToCart = () => {
-    const Exist = CartProduct.find((item)=> item.id === productDetails.id)
+    const Exist = CartProduct.find((item) => item.id === productDetails.id)
     if (!Exist) {
       dispatch(CartReducer(productDetails))
+      notify()
     }
   }
 
 
   const handleWishlist = () => {
-    const exit = Whishlist.find((item)=> item.id === productDetails.id)
+    const exit = Whishlist.find((item) => item.id === productDetails.id)
     if (!exit) {
       dispatch(WishlistReducer(productDetails))
+      notify()
     }
   }
+
+
+  const notify = () => toast.success('The work was done successfully.', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  });
+
 
 
 
@@ -44,7 +61,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disRev
     <>
       <div className='w-67.5 mt-10 group ' >
         <div className='relative overflow-hidden '>
-          <img src={ImgSrc} alt="" className='cursor-pointer' onClick={handleProductDetails}/>
+          <img src={ImgSrc} alt="" className='cursor-pointer' onClick={handleProductDetails} />
           <div className='discount'>
             <h3 className={`absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
               text-xs text-white rounded-sm  ${disHidden}`}>-{DisParcentge}</h3>
@@ -53,7 +70,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disRev
                 <FaRegHeart className={`${disHeart} text-2xl  cursor-pointer`} onClick={handleWishlist} />
               </div>
               <div className={`${disEye} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
-                <FiEye className='text-2xl '/>
+                <FiEye className='text-2xl ' />
               </div>
             </div>
           </div>
@@ -67,7 +84,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,disEye,disHeart ,disRev
         </div>
         <Flex className='items-center '>
           <Flex className={`${disRating} mt-2 text-[#FFAD33] `}>
-            <Rate allowHalf defaultValue={rating}  />
+            <Rate allowHalf defaultValue={rating} />
           </Flex>
           <h5 className={`${disReview} pl-2 text-[#7D8184]`}>({Review})</h5>
         </Flex>
