@@ -49,7 +49,7 @@ const ProductDetails = () => {
         setIncre(incre + 1)
     }
 
-    const handleDicrement = () => {
+    const handleDecrement = () => {
         if (incre > 0) {
             setIncre(incre - 1)
         }
@@ -116,7 +116,7 @@ const ProductDetails = () => {
                         <div className='mt-6 flex gap-4'>
                             <div className='flex'>
 
-                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer' onClick={handleDicrement}><IoMdRemove /></div>
+                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer' onClick={handleDecrement}><IoMdRemove /></div>
                             <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>{incre}</div>
                             <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'  onClick={handleIncrement}><GoPlus /></div>
                             </div>
