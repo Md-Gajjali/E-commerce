@@ -2,7 +2,6 @@ import React from 'react'
 import Container from '../Componets/Container'
 import Breadcrumb from '../Componets/Breadcrumb'
 import CartItems from '../Componets/CartItems'
-import img from '../assets/LAD.png'
 import Flex from '../Componets/Flex'
 import Button from '../Componets/Button'
 import { useSelector } from 'react-redux'
@@ -24,13 +23,14 @@ const Cart = () => {
         </div>
         <div className=''>
           {
-            CartProduct.map((item) => {
+            CartProduct.map((item,idx) => {
               return (
                 <CartItems
                   ImgSrc={item.thumbnail}
                   productName={item.title}
                   price={item.price}
                   subtotal={item.price}
+                  key={idx}
                 />
               )
             })

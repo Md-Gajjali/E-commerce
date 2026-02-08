@@ -29,7 +29,7 @@ const ProductDetails = () => {
     const [product,setProduct] = useState([])
     const [productImgese ,setproductImgese] = useState([])
     const [loading,setLoading] = useState(false)
-    const [incre,setIncre]=useState(0)
+    const [state,setState]=useState(0)
 
     async function getAllData() {
         await axios.get(`https://dummyjson.com/products/${id}`)
@@ -46,12 +46,12 @@ const ProductDetails = () => {
 
 
     const handleIncrement = () => {
-        setIncre(incre + 1)
+        setState(incre + 1)
     }
 
     const handleDecrement = () => {
         if (incre > 0) {
-            setIncre(incre - 1)
+            setState(incre - 1)
         }
     }
 
@@ -117,7 +117,7 @@ const ProductDetails = () => {
                             <div className='flex'>
 
                             <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer' onClick={handleDecrement}><IoMdRemove /></div>
-                            <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>{incre}</div>
+                            <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>{state}</div>
                             <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'  onClick={handleIncrement}><GoPlus /></div>
                             </div>
                              <Button className='bg-primary'>Buy now</Button>
