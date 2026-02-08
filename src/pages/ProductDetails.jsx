@@ -46,12 +46,13 @@ const ProductDetails = () => {
 
 
     const handleIncrement = () => {
-        setState(incre + 1)
+        setState(state + 1)
+        console.log('kaj korsi nah')
     }
 
     const handleDecrement = () => {
-        if (incre > 0) {
-            setState(incre - 1)
+        if (state > 0) {
+            setState(state - 1)
         }
     }
 
