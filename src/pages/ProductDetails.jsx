@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../Componets/Breadcrumb'
 import Flex from '../Componets/Flex'
 import Container from '../Componets/Container'
-import img from '../assets/console2.png'
 import { Rate } from 'antd';
 import { GoDotFill } from "react-icons/go";
-import { GoPlus } from "react-icons/go";
-import { IoMdRemove } from "react-icons/io";
 import { TbTruckDelivery } from "react-icons/tb";
 import { TfiReload } from "react-icons/tfi";
 import SecHeading from '../Componets/SecHeading'
@@ -21,7 +18,8 @@ import Button from '../Componets/Button'
 import { FiHeart } from "react-icons/fi";
 
 
-const ProductDetails = () => {
+
+const ProductDetails = ( ) => {
 
 
     let {id} = useParams();
@@ -30,6 +28,7 @@ const ProductDetails = () => {
     const [productImgese ,setproductImgese] = useState([])
     const [loading,setLoading] = useState(false)
     const [state,setState]=useState(0)
+
 
     async function getAllData() {
         await axios.get(`https://dummyjson.com/products/${id}`)
@@ -45,16 +44,41 @@ const ProductDetails = () => {
     }, [id])
 
 
-    const handleIncrement = () => {
-        setState(state + 1)
-        console.log('kaj korsi nah')
-    }
 
-    const handleDecrement = () => {
-        if (state > 0) {
+
+
+
+    // const handleIncrement = () => {
+    //     setState(state + 1)
+    // }
+
+    // const handleDecrement = () => {
+    //     if (state > 0) {
+    //         setState(state - 1)
+    //     }
+    // }
+
+    function handleProductCountState(e) {
+        if (state > 0 && e.target.innerText === "-" ) {
             setState(state - 1)
+            return
+        }
+        if (e.target.innerText === "+" ) {
+            setState(state + 1) 
+            return
         }
     }
+
+
+    // function handleDecrement() {
+    //     state > 0 && setState(state - 1)
+    // }
+    
+    // function handleIncrement() {
+    //     setState(state + 1)
+    // }
+
+    
 
 
     return (
@@ -68,7 +92,6 @@ const ProductDetails = () => {
                                 productImgese.map((item)=>{
                                     return(
                                         <img className='w-42.5 h-34.5 ' src={item} alt="" />
-
                                     )
                                 })
                             }
@@ -117,12 +140,12 @@ const ProductDetails = () => {
                         <div className='mt-6 flex gap-4'>
                             <div className='flex'>
 
-                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer' onClick={handleDecrement}><IoMdRemove /></div>
+                            <div className='w-10   flex justify-center items-center rounded-l-sm text-4xl border-2  border-[#929395] py-2.5 cursor-pointer' onClick={handleProductCountState}>-</div>
                             <div className='w-20 flex justify-center items-center border-2  border-[#929395]  border-r-none'>{state}</div>
-                            <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'  onClick={handleIncrement}><GoPlus /></div>
+                            <div className='bg-primary w-10 text-white text-4xl flex justify-center items-center rounded-r-sm cursor-pointer'  onClick={handleProductCountState}>+</div>
                             </div>
                              <Button className='bg-primary'>Buy now</Button>
-                             <button className='py-2 px-4 rounded-sm cursor-pointer border-[#929395] border-2  text-black '><FiHeart /></button>
+                             <button className='py-2 px-4 rounded-sm cursor-pointer border-[#929395] border-2  text-black ' ><FiHeart /></button>
                         </div>
                         <div className='w-99.75 border-[#929395] border-2 mt-10 py-6 px-4 rounded-sm '>
                             <Flex className='items-center gap-7'>

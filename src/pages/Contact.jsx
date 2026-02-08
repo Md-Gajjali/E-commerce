@@ -20,7 +20,7 @@ const Contact = () => {
               </Flex>
               <p className='leading-9 mt-2 border-b h-20'>We are available 24/7, 7 days a week.
                 Phone: +8801611112222</p>
-              <Flex className='items-center mt-6  gap-3 mt-8.5'>
+              <Flex className='items-center  gap-3 mt-8.5'>
                 <img src={mail} alt="" />
                 <p>Contact us </p>
               </Flex>
