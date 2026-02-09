@@ -9,6 +9,9 @@ import NewArrival from '../Componets/NewArrival'
 import Delivery from '../Componets/Delivery'
 
 const Home = () => {
+
+
+
     return (
         <>
           <Banner />
