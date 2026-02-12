@@ -30,11 +30,11 @@ const Contact = () => {
           </div>
           <div className='w-200 shadow py-9 px-8.5   mt-22' >
             <Flex className='justify-between'>
+              <input type="text" placeholder='Your Name ' className='px-3 py-4 rounded-sm bg-gray-200 outline-none focus:outline-none ' />
               <input type="text" placeholder='Your Name ' className='px-3 py-4 rounded-sm bg-gray-200 outline-none focus:outline-none' />
-              <input type="text" placeholder='Your Name ' className='px-3 py-4 rounded-sm bg-gray-200 outline-none focus:outline-none' />
-              <input type="text" placeholder='Your Name ' className='px-3 py-4 rounded-sm bg-gray-200 outline-none focus:outline-none' />
+              <input type="text" placeholder='Your Name ' className='px-3 py-4 rounded-sm bg-gray-200 outline-none focus:outline-none ' />
             </Flex>
-            <input type="text" placeholder='Your Name ' className='w-full  h-52.5 mt-10  px-3 rounded-sm bg-gray-200 outline-none focus:outline-none' />
+            <input type="text" placeholder='Your Name ' className='w-full  h-52.5 mt-10  px-3 rounded-sm bg-gray-200 outline-none focus:outline-none text-start' />
             <div className='flex justify-end '>
               <Button className='bg-primary mt-10  w-53.75'>Send Massage</Button>
             </div>
