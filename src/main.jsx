@@ -17,6 +17,7 @@ import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import BillingDetails from './pages/BillingDetails.jsx';
 import { ToastContainer} from 'react-toastify';
+import Account from './pages/Account.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "Login", Component: Login },
       { path: "sign", Component: SignUp },
       { path: "Billing", Component: BillingDetails },
+      { path: "Account", Component: Account },
       
     ],
   },

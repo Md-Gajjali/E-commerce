@@ -67,6 +67,7 @@ const Cart = () => {
           </div>
         </div>
       </Container>
+      
     </div>
   )
 }
