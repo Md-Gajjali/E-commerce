@@ -17,7 +17,7 @@ const Wishlist = () => {
             <Container>
                 <Flex className='justify-between items-center mt-20'>
                     <h2>Wishlist({Whishlist.length})</h2>
-                    <Button className='border text-black! '>Move All To Bag</Button>
+                    <Button className='border text-black!  hover:bg-primary hover:text-white! ease-in-out duration-400 '>Move All To Bag</Button>
                 </Flex>
                     {Whishlist.length === 0 && <div className='text-3xl py-20   text-center font-pop font-semibold'>Product not found 🥹</div>}
                 <div className='flex  justify-between gap-4 flex-wrap'>
@@ -41,7 +41,7 @@ const Wishlist = () => {
                 </div>
                 <div className='mt-20 flex items-center   justify-between'>
                     <SecHeading title='Just For You' />
-                    <Button className='border text-black! '>See All</Button>
+                    <Button className='border text-black!'>See All</Button>
                 </div>
                 <div className='flex justify-between flex-wrap '>
                     <Cards
