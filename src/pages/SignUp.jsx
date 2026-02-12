@@ -24,7 +24,7 @@ const SignUp = () => {
                             <input type="text" placeholder='Password'  className='border-b w-full h-15 outline-none focus:outline-none focus:border-b  "'/>
                             <div className=' '> 
                                 <Button className='mt-10 bg-primary h-14 w-full   flex justify-center items-center'>Create Account</Button>
-                                <Button className='  h-14 w-full   flex justify-center items-center border mt-10 text-black!'><FcGoogle className='mr-2'/>  Sign up with Google</Button>
+                                <Button className='  h-14 w-full   flex justify-center items-center border mt-10 text-black! hover:bg-primary hover:text-white! linear  ease-in-out duration-400'><FcGoogle className='mr-2'/>  Sign up with Google</Button>
                                 <div className='flex  justify-center gap-10 '>
                                     <p>Already have account?</p>
                                     <h5>Log in</h5>
