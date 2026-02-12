@@ -39,8 +39,8 @@ const Cart = () => {
           }
         </div>
         <Flex className='justify-between mt-6'>
-          <Button className='border text-black!'>Return To Shop</Button>
-          <Button className='border text-black!'>Update Cart</Button>
+          <Button className='border text-black! hover:bg-primary hover:text-white! ease-in-out duration-400'>Return To Shop</Button>
+          <Button className='border text-black! hover:bg-primary hover:text-white! ease-in-out duration-400'>Update Cart</Button>
         </Flex>
         <div className='mt-20 flex justify-between gap-43.25'>
           <Flex className='justify-between w-[45%] gap-4  '>
