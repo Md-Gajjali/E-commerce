@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '../Componets/Container'
 import Flex from '../Componets/Flex'
 import Breadcrumb from '../Componets/Breadcrumb'
+import Button from '../Componets/Button'
 
 const Account = () => {
     return (
@@ -53,6 +54,10 @@ const Account = () => {
                         <input type="Password" placeholder='Current Passwod ' className='w-full outline-0 mt-2 bg-gray-100 focus-within:none py-3.25 px-4 rounded-sm ' />
                         <input type="Password" placeholder='New Passwod' className=' w-full outline-0 mt-4 bg-gray-100 focus-within:none py-3.25 px-4 rounded-sm ' />
                         <input type="Password" placeholder='Confirm New Passwod' className='w-full outline-0 mt-4 bg-gray-100 focus-within:none py-3.25 px-4 rounded-sm ' />
+                        <div className='flex items-center gap-10  justify-end mt-4 '>
+                            <p className='text-[16px] font-pop font-normal'>Cancel</p>
+                            <Button className='bg-primary text-black'>Save Changes</Button>
+                        </div>
                     </div>
                 </Flex>
             </Container>
