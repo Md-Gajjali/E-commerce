@@ -7,7 +7,7 @@ import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { CartReducer, WishlistReducer } from '../ProductSlice';
-  import {  toast ,Bounce} from 'react-toastify';
+import {  toast ,Bounce} from 'react-toastify';
 
 
 
@@ -24,8 +24,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
   }
 
   const handleAddToCart = () => {
-    const Exist = CartProduct.find((item) => item.id === productDetails.id)
-    if (!Exist) {
+    if (CartProduct.find((item) => item.id === productDetails.id)) {
       dispatch(CartReducer(productDetails))
       notify()
     }
@@ -33,8 +32,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
 
 
   const handleWishlist = () => {
-    const exit = Whishlist.find((item) => item.id === productDetails.id)
-    if (!exit) {
+    if (! Whishlist.find((item) => item.id === productDetails.id)) {
       dispatch(WishlistReducer(productDetails))
       notify()
     }

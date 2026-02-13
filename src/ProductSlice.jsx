@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: [],
-  cart: JSON.parse(localStorage.getItem('cartItems')) || [],
-  Wishlist: JSON.parse(localStorage.getItem('WishlistItems')) || [] ,
+  cart: [],
+  Wishlist:[] ,
 }
 
 export const ProductSlice = createSlice({
@@ -18,11 +18,11 @@ export const ProductSlice = createSlice({
     },
     CartReducer:(state,action)=>{
         state.cart = [...state.cart , action.payload]
-        localStorage.setItem('cartItems', JSON.stringify(state.cart));
+        // localStorage.setItem('cartItems', JSON.stringify(state.cart));
     },
     WishlistReducer:(state,action)=>{
         state.Wishlist = [...state.Wishlist, action.payload]
-        localStorage.setItem('WishlistItems',JSON.stringify(state.Wishlist))
+        // localStorage.setItem('WishlistItems',JSON.stringify(state.Wishlist))
     },
   },
 })
