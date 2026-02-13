@@ -24,9 +24,10 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
   }
 
   const handleAddToCart = () => {
-    if (CartProduct.find((item) => item.id === productDetails.id)) {
+    if (!CartProduct.find((item) => item.id === productDetails.id)) {
       dispatch(CartReducer(productDetails))
       notify()
+      
     }
   }
 
