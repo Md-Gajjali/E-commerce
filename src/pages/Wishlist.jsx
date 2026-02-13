@@ -41,7 +41,7 @@ const Wishlist = () => {
                 </div>
                 <div className='mt-20 flex items-center   justify-between'>
                     <SecHeading title='Just For You' />
-                    <Button className='border text-black!'>See All</Button>
+                    <Button className='border hover:border-none text-black!  hover:bg-primary hover:text-white! ease-in-out duration-400'>See All</Button>
                 </div>
                 <div className='flex justify-between flex-wrap '>
                     <Cards

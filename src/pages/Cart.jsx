@@ -25,7 +25,7 @@ const Cart = () => {
         <div className=''>
             {CartProduct.length === 0 && <div className='text-3xl py-20 text-center  font-pop font-semibold'>Product not found🥹</div>}
           {
-            CartProduct.map((item,idx) => {
+            CartProduct.map((item,idx ) => {
               return (
                 <CartItems
                   ImgSrc={item.thumbnail}
