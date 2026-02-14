@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux'
 
 const Cart = () => {
   const CartProduct = useSelector((state) => state.AllProducts.cart)
-
-
   return (
     <div>
       <Container>
@@ -23,7 +21,7 @@ const Cart = () => {
           <h4 className='font-normal font-pop text-[16px] '>subtotal</h4>
         </div>
         <div className=''>
-            {CartProduct.length === 0 && <div className='text-3xl py-20 text-center  font-pop font-semibold'>Product not found🥹</div>}
+          {CartProduct.length === 0 && <div className='text-3xl py-20 text-center  font-pop font-semibold'>Product not found🥹</div>}
           {
             CartProduct.map((item,idx ) => {
               return (

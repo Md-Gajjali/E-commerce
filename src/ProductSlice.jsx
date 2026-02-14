@@ -24,10 +24,13 @@ export const ProductSlice = createSlice({
         state.Wishlist = [...state.Wishlist, action.payload]
         localStorage.setItem('WishlistItems',JSON.stringify(state.Wishlist))
     },
+    RemoveReducer:(state,action)=>{
+        state.cart = state.cart.filtter((item)=> item.id === action.payload)
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { GetProducts,FilterReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
+export const { GetProducts,FilterReducer,RemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer

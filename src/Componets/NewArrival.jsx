@@ -1,11 +1,7 @@
 import React from 'react'
 import Container from './Container'
 import SecHeading from './SecHeading'
-import Flex from './Flex'
-import img from '../assets/New-Arrival/perfume.png'
-import speaker from '../assets/New-Arrival/speaker.png'
-import vibe from '../assets/New-Arrival/vibe.png'
-import Ps5 from '../assets/New-Arrival/Ps5.png'
+
 
 const NewArrival = () => {
     return (
