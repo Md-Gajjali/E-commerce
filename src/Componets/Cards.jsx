@@ -27,7 +27,6 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
     if (!CartProduct.find((item) => item.id === productDetails.id)) {
       dispatch(CartReducer(productDetails))
       notify()
-      
     }
   }
 
@@ -40,7 +39,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
   }
 
 
-  const notify = () => toast.success('The work was done successfully.', {
+  const notify = () => toast.success('successfull', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,

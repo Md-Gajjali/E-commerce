@@ -25,9 +25,8 @@ export const ProductSlice = createSlice({
         localStorage.setItem('WishlistItems',JSON.stringify(state.Wishlist))
     },
     RemoveReducer:(state,action)=>{
-        state.cart = state.cart.filter((item)=> item.id !== action.payload)
-        localStorage.setItem('cartItems', JSON.stringify(state.cart))
-        
+       state.cart = state.cart.filter((item)=> item.id !== action.payload)
+       localStorage.setItem('cartItems', JSON.stringify(state.cart))
     },
   },
 })
@@ -35,3 +34,8 @@ export const ProductSlice = createSlice({
 export const { GetProducts,FilterReducer,RemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer
+
+
+
+
+
