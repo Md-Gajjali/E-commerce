@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux'
 import Cards from '../Componets/Cards'
 import SecHeading from '../Componets/SecHeading'
 import lad from '../assets/LAD.png'
+import { BsTrash } from "react-icons/bs";
+
 
 const Wishlist = () => {
 
@@ -34,6 +36,8 @@ const Wishlist = () => {
                                     disEye='hidden'
                                     disRating='hidden'
                                     disReview='hidden'
+                                    Delete={<BsTrash />}
+                                    id={item.id}
                                 />
                             )
                         })

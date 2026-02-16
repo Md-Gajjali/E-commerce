@@ -6,12 +6,12 @@ import Flex from './Flex';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
-import { CartReducer, WishlistReducer } from '../ProductSlice';
+import { CartReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
 import {  toast ,Bounce} from 'react-toastify';
 
 
 
-const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disReview, DisParcentge, price, Review, btn, disHidden, productDetails, rating, id }) => {
+const Cards = ({ ImgSrc, title, discountPrice, disRating,Delete, disEye, disHeart, disReview, DisParcentge, price, Review, btn, disHidden, productDetails, rating, id }) => {
 
   let navigate = useNavigate();
   const dispatch = useDispatch()
@@ -50,7 +50,11 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
     theme: "light",
     transition: Bounce,
   });
+  
 
+  const handleRemove =()=>{
+    dispatch(WishlistRemoveReducer(id))
+  }
 
 
 
@@ -67,8 +71,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, disEye, disHeart, disR
               <div className=' h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25'>
                 <FaRegHeart className={`${disHeart} text-2xl  cursor-pointer`} onClick={handleWishlist} />
               </div>
-              <div className={`${disEye} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
-                <FiEye className='text-2xl ' />
+              <div className={`h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
+                <FiEye className={`${disEye}  text-2xl  `}/> <span onClick={handleRemove}>{Delete}</span>
               </div>
             </div>
           </div>
