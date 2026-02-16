@@ -39,7 +39,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
   }
 
 
-  const notify = () => toast.success('Product added successfully.', {
+  const notify = () => toast.success('Product added successfully', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
