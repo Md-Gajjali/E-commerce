@@ -7,6 +7,9 @@ import payment from '../assets/payment.png'
 import Button from '../Componets/Button'
 
 const BillingDetails = () => {
+
+
+
     return (
         <div className='mt-20'>
             <Container>
@@ -82,15 +85,15 @@ const BillingDetails = () => {
                             <img src={payment} alt="" />
                         </div>
                         <div className='flex mt-8.5'>
-                            <input type="radio" id="html" name="fav_language" value="HTML" className='w-11 ' />
+                            <input  type="radio" id="html" name="fav_language" value="HTML" className='w-11 ' />
                             <p>Cash on delivery </p>
                         </div>
 
                         <Flex className='justify-between mt-7'>
                             <input type="text" className='px-6 py-4 border-[#3736367b] border rounded-sm ' placeholder='Coupon Code' />
-                            <Button className='bg-primary text-black!'>Apply Coupon</Button>
+                            <Button className='bg-primary text-black!' >Apply Coupon</Button>
                         </Flex>
-                        <Button className='bg-primary text-black! mt-7 w-47.5'>Place Order</Button>
+                        <Button className='bg-primary text-black! mt-7 w-47.5'  >Place Order</Button>
                     </div>
                 </Flex>
             </Container>
