@@ -39,21 +39,24 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,Delete, disEye, disHear
   }
 
 
-  const notify = () => toast.success('successfull', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    transition: Bounce,
-  });
+  const notify = () =>  toast.error('Product removed successfully', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   
 
   const handleRemove =()=>{
-    dispatch(WishlistRemoveReducer(id))
+    if (dispatch(WishlistRemoveReducer(id))) {
+      notify()
+    }
+    
   }
 
 
@@ -71,8 +74,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,Delete, disEye, disHear
               <div className=' h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25'>
                 <FaRegHeart className={`${disHeart} text-2xl  cursor-pointer`} onClick={handleWishlist} />
               </div>
-              <div className={`h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
-                <FiEye className={`${disEye}  text-2xl  `}/> <span onClick={handleRemove}>{Delete}</span>
+              <div className={`h-8.5  w-8.5 bg-white rounded-full flex justify-center cursor-pointer items-center p-1.25 `}>
+                <FiEye className={`${disEye}  text-2xl  `}/> <span onClick={handleRemove} className='cursor-pointer text-2xl  '>{Delete}</span>
               </div>
             </div>
           </div>

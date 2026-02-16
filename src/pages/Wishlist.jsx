@@ -24,7 +24,7 @@ const Wishlist = () => {
                     {Whishlist.length === 0 && <div className='text-3xl py-20   text-center font-pop font-semibold'>Product not found 🥹</div>}
                 <div className='flex  justify-between gap-4 flex-wrap'>
                     {
-                        Whishlist.map((item) => {
+                        Whishlist.map((item ,idx) => {
                             return (
                                 <Cards
                                     ImgSrc={item.thumbnail}
@@ -36,8 +36,10 @@ const Wishlist = () => {
                                     disEye='hidden'
                                     disRating='hidden'
                                     disReview='hidden'
-                                    Delete={<BsTrash />}
+                                    disHeart='hidden '
+                                    Delete={<BsTrash /> }
                                     id={item.id}
+                                    key={idx}
                                 />
                             )
                         })

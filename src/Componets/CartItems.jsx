@@ -8,7 +8,7 @@ import {  toast ,Bounce} from 'react-toastify';
 
 const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
 
-  const notify = () => toast.error('Remove your Product', {
+  const notify = () => toast.error('Product removed successfully', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
