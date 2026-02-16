@@ -7,11 +7,11 @@ import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { CartReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
-import {  toast ,Bounce} from 'react-toastify';
+import { toast, Bounce } from 'react-toastify';
 
 
 
-const Cards = ({ ImgSrc, title, discountPrice, disRating,Delete, disEye, disHeart, disReview, DisParcentge, price, Review, btn, disHidden, productDetails, rating, id }) => {
+const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHeart, disReview, DisParcentge, price, Review, btn, disHidden, productDetails, rating, id }) => {
 
   let navigate = useNavigate();
   const dispatch = useDispatch()
@@ -32,31 +32,44 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,Delete, disEye, disHear
 
 
   const handleWishlist = () => {
-    if (! Whishlist.find((item) => item.id === productDetails.id)) {
+    if (!Whishlist.find((item) => item.id === productDetails.id)) {
       dispatch(WishlistReducer(productDetails))
       notify()
     }
   }
 
 
-  const notify = () =>  toast.error('Product removed successfully', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
-  
+  const notify = () => toast.success('Product added successfully.', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  });
 
-  const handleRemove =()=>{
+
+  const notify2 = () => toast.error('Product removed successfully', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  });
+
+
+  const handleRemove = () => {
     if (dispatch(WishlistRemoveReducer(id))) {
-      notify()
+      notify2()
     }
-    
+
   }
 
 
@@ -75,7 +88,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating,Delete, disEye, disHear
                 <FaRegHeart className={`${disHeart} text-2xl  cursor-pointer`} onClick={handleWishlist} />
               </div>
               <div className={`h-8.5  w-8.5 bg-white rounded-full flex justify-center cursor-pointer items-center p-1.25 `}>
-                <FiEye className={`${disEye}  text-2xl  `}/> <span onClick={handleRemove} className='cursor-pointer text-2xl  '>{Delete}</span>
+                <FiEye className={`${disEye}  text-2xl  `} /> <span onClick={handleRemove} className='cursor-pointer text-2xl  '>{Delete}</span>
               </div>
             </div>
           </div>
