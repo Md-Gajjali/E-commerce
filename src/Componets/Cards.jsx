@@ -28,6 +28,9 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
       dispatch(CartReducer(productDetails))
       notify()
     }
+        notify3()
+
+
   }
 
 
@@ -39,7 +42,20 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
   }
 
 
-  const notify = () => toast.success('Product added successfully', {
+  const notify = () => toast.success('Add to Cart', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  })
+
+
+  const notify2 = () => toast.error('Removed', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -51,8 +67,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     transition: Bounce,
   });
 
-
-  const notify2 = () => toast.error('Product removed successfully', {
+  const notify3 = () => toast.error('Exist', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,

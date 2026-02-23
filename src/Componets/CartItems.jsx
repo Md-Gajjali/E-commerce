@@ -1,6 +1,6 @@
 import React from 'react'
 import { RxCross2 } from "react-icons/rx";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { RemoveReducer } from '../ProductSlice';
 import {  toast ,Bounce} from 'react-toastify';
 
@@ -8,7 +8,7 @@ import {  toast ,Bounce} from 'react-toastify';
 
 const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
 
-  const notify = () => toast.error('Product removed successfully', {
+  const notify = () => toast.error('removed', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -22,20 +22,12 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
 
   const dispatch = useDispatch()
 
-  // const handleRemove = ()=> {
-  //   if (dispatch(RemoveReducer(id))) {
-  //     notify()
-  //   } 
-  // }
-
-
   function handleRemove() {
     if (dispatch(RemoveReducer(id))) {
       notify()
     }
 
   }
-
 
   return (
     <div className={`${className} w-full mt-10  flex justify-between items-center px-10 py-6 border-[#F2F4F7] rounded-sm  shadow-[inset_0px_2px_4px_0px_rgba(184,196,243,0.14),0px_3px_10px_0px_rgba(16,24,40,0.1)]`}>
