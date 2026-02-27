@@ -7,49 +7,44 @@ import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { CartReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
-import { toast, Bounce } from 'react-toastify';
+import { toast, Bounce ,Flip} from 'react-toastify';
 
 
 
 const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHeart, disReview, DisParcentge, price, Review, btn, disHidden, productDetails, rating, id }) => {
 
   let navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const CartProduct = useSelector((state) => state.AllProducts.cart)
   const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
 
+  const notify = (matchItem) => { 
+    matchItem === undefined ?
+    toast.success('Add to Cart', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    }) : toast.warn('🦄 Wow so easy!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Flip,
+    });
 
-  const handleProductDetails = () => {
-    navigate(`/ProductDetails/${id}`)
+
   }
 
-  const handleAddToCart = () => {
-    if (!CartProduct.find((item) => item.id === productDetails.id)) {
-      dispatch(CartReducer(productDetails))
-      notify()
-    }
-  }
-
-
-  const handleWishlist = () => {
-    if (!Whishlist.find((item) => item.id === productDetails.id)) {
-      dispatch(WishlistReducer(productDetails))
-      notify()
-    }
-  }
-
-
-  const notify = () => toast.success('Add to Cart', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    transition: Bounce,
-  })
 
 
   const notify2 = () => toast.error('Removed', {
@@ -64,13 +59,38 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     transition: Bounce,
   });
 
+  const handleProductDetails = () => {
+    navigate(`/ProductDetails/${id}`)
+  }
+
+  const handleAddToCart = () => {
+
+    const matchItem = CartProduct.find((item) => item.id === productDetails.id)
+    console.log(matchItem)
+    matchItem ? dispatch(!CartReducer(productDetails)) : dispatch(CartReducer(productDetails))
+    notify(matchItem)
+    // if (!CartProduct.find((item) => item.id === productDetails.id)) {
+    //   dispatch(CartReducer(productDetails))
+    //   notify()
+    // }
+  }
+
+
+  const handleWishlist = () => {
+    if (!Whishlist.find((item) => item.id === productDetails.id)) {
+      dispatch(WishlistReducer(productDetails))
+      notify()
+    }
+  }
+
+
+
   
 
   const handleRemove = () => {
     if (dispatch(WishlistRemoveReducer(id))) {
       notify2()
     }
-
   }
 
 
