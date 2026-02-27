@@ -23,11 +23,10 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
   const dispatch = useDispatch()
 
   function handleRemove() {
-    if (dispatch(RemoveReducer(id))) {
-      notify()
-    }
-
+    dispatch(RemoveReducer(id))
+    notify()
   }
+  
 
   return (
     <div className={`${className} w-full mt-10  flex justify-between items-center px-10 py-6 border-[#F2F4F7] rounded-sm  shadow-[inset_0px_2px_4px_0px_rgba(184,196,243,0.14),0px_3px_10px_0px_rgba(16,24,40,0.1)]`}>

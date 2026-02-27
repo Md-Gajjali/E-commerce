@@ -31,7 +31,6 @@ export const ProductSlice = createSlice({
     WishlistRemoveReducer:(state,action)=>{
        state.Wishlist = state.Wishlist.filter((item)=> item.id !== action.payload)
       localStorage.setItem('WishlistItems',JSON.stringify(state.Wishlist))
-
     },
   },
 })

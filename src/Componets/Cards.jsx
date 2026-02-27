@@ -6,7 +6,7 @@ import Flex from './Flex';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
-import { CartReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
+import { CartReducer, RemoveReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
 import { toast, Bounce ,Flip} from 'react-toastify';
 
 
@@ -19,7 +19,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
   const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
 
   const notify = (matchItem) => { 
-    matchItem === undefined ?
+
+    matchItem == undefined ?
     toast.success('Add to Cart', {
       position: "top-right",
       autoClose: 5000,
@@ -30,7 +31,9 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
       progress: undefined,
       theme: "light",
       transition: Bounce,
-    }) : toast.warn('🦄 Wow so easy!', {
+    })
+     :
+      toast.warn('Your product has been already added ', {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -64,12 +67,19 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
   }
 
   const handleAddToCart = () => {
-
     const matchItem = CartProduct.find((item) => item.id === productDetails.id)
-    console.log(matchItem)
-    matchItem ? dispatch(!CartReducer(productDetails)) : dispatch(CartReducer(productDetails))
-    notify(matchItem)
-    // if (!CartProduct.find((item) => item.id === productDetails.id)) {
+    if (!matchItem) {
+      dispatch(CartReducer(productDetails))
+    //  notify()
+    } else {
+      notify(matchItem)
+    } 
+
+    // if (matchItem) {
+    //   // item already in cart, remove it instead of dispatching a boolean
+    //   dispatch(RemoveReducer(productDetails.id))
+    //   notify2()
+    // } else {
     //   dispatch(CartReducer(productDetails))
     //   notify()
     // }
@@ -77,20 +87,20 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
 
 
   const handleWishlist = () => {
-    if (!Whishlist.find((item) => item.id === productDetails.id)) {
+    const matchItem = Whishlist.find((item) => item.id === productDetails.id)
+    if (!matchItem) {
       dispatch(WishlistReducer(productDetails))
       notify()
+    } else {
+      notify(matchItem)
     }
   }
-
-
 
   
 
   const handleRemove = () => {
-    if (dispatch(WishlistRemoveReducer(id))) {
-      notify2()
-    }
+    dispatch(WishlistRemoveReducer(id))
+    notify2()
   }
 
 
