@@ -70,7 +70,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     const matchItem = CartProduct.find((item) => item.id === productDetails.id)
     if (!matchItem) {
       dispatch(CartReducer(productDetails))
-    //  notify()
+     notify()
     } else {
       notify(matchItem)
     } 
