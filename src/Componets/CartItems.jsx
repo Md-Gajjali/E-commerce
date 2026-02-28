@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch } from 'react-redux';
-import { RemoveReducer } from '../ProductSlice';
+import { DecrementReducer, IncrementReducer, RemoveReducer } from '../ProductSlice';
 import {  toast ,Bounce} from 'react-toastify';
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 
 
-const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
+const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,count,quantity}) => {
+
+  const [counted,setCounted] = useState(0)
 
   const notify = () => toast.error('removed', {
     position: "top-right",
@@ -26,6 +30,14 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
     dispatch(RemoveReducer(id))
     notify()
   }
+
+  const  handleIncre =() =>{
+      dispatch(IncrementReducer(id))
+  }
+
+  const handleDecre = () => {
+    dispatch(DecrementReducer(id))
+  }
   
 
   return (
@@ -38,7 +50,13 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id }) => {
         <h3 className='font-normal font-pop text-[16px] w-50'>{productName}</h3>
       </div>
       <h3 className='font-normal font-pop text-[16px] '>${price}</h3>
-      <input type="number" min={1} max={99} step={1} className='w-18 h-11 py-1.5 px-3 rounded-sm border-[#929395] border-2' />
+      <div className='flex items-center py-2 px-5 gap-2 border'>
+        {quantity}
+        <div className='grid '>
+          <IoIosArrowUp  className='block' onClick={handleIncre}/>
+          <IoIosArrowDown className='block'onClick={handleDecre}/>
+        </div>
+      </div>
       <h4 className='font-normal font-pop text-[16px] '>${subtotal}</h4>
     </div>
   )

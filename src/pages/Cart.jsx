@@ -32,6 +32,7 @@ const Cart = () => {
                   subtotal={item.price}
                   key={idx}
                   id={item.id}
+                  quantity={item.quan}
                 />
               )
             })

@@ -69,20 +69,11 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
   const handleAddToCart = () => {
     const matchItem = CartProduct.find((item) => item.id === productDetails.id)
     if (!matchItem) {
-      dispatch(CartReducer(productDetails))
+      dispatch(CartReducer({...productDetails, quan: 1}))
      notify()
     } else {
       notify(matchItem)
     } 
-
-    // if (matchItem) {
-    //   // item already in cart, remove it instead of dispatching a boolean
-    //   dispatch(RemoveReducer(productDetails.id))
-    //   notify2()
-    // } else {
-    //   dispatch(CartReducer(productDetails))
-    //   notify()
-    // }
   }
 
 
