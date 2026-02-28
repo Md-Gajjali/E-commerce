@@ -23,7 +23,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     matchItem == undefined ?
     toast.success('Add to Cart', {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -35,7 +35,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
      :
       toast.warn('Your product has been already added ', {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -52,7 +52,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
 
   const notify2 = () => toast.error('Removed', {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -66,25 +66,33 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     navigate(`/ProductDetails/${id}`)
   }
 
+  // const handleAddToCart = () => {
+  //   const matchItem = CartProduct.find((item) => item.id === productDetails.id)
+  //   if (!matchItem) {
+  //     dispatch(CartReducer({...productDetails, quan: 1}))
+  //    notify()
+  //   } else {
+  //     notify(matchItem)
+  //   } 
+  // }
+
   const handleAddToCart = () => {
     const matchItem = CartProduct.find((item) => item.id === productDetails.id)
     if (!matchItem) {
-      dispatch(CartReducer({...productDetails, quan: 1}))
-     notify()
-    } else {
-      notify(matchItem)
-    } 
+      dispatch(CartReducer(productDetails))
+    }
+    notify(matchItem)
   }
+
 
 
   const handleWishlist = () => {
     const matchItem = Whishlist.find((item) => item.id === productDetails.id)
     if (!matchItem) {
       dispatch(WishlistReducer(productDetails))
-      notify()
-    } else {
+    } 
       notify(matchItem)
-    }
+    
   }
 
   

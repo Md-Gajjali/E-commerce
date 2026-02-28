@@ -7,7 +7,9 @@ import Button from '../Componets/Button'
 import { useSelector } from 'react-redux'
 
 const Cart = () => {
+  
   const CartProduct = useSelector((state) => state.AllProducts.cart)
+
   return (
     <div>
       <Container>

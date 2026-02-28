@@ -32,17 +32,30 @@ export const ProductSlice = createSlice({
        state.Wishlist = state.Wishlist.filter((item)=> item.id !== action.payload)
       localStorage.setItem('WishlistItems',JSON.stringify(state.Wishlist))
     },
-    IncrementReducer:(state, action) => {
+    // IncrementReducer:(state, action) => {
+    //   state.cart = state.cart.map((item)=>{
+    //     return item.id == action.payload ? {...item , quan: item.quan+1} : item
+    //   } )
+    //   localStorage.setItem('cartItems', JSON.stringify(state.cart))
+    // },
+    // DecrementReducer:(state,action)=> {
+    //   state.cart = state.cart.map((item)=>{
+    //     return item.id == action.payload ? {...item , quan: item.quan-1} : item
+    //   })
+    //   localStorage.setItem('cartItems', JSON.stringify(state.cart))
+    // }
+    IncrementReducer:(state,action) => {
       state.cart = state.cart.map((item)=>{
-        return item.id == action.payload ? {...item , quan: item.quan+1} : item
-      } )
-      localStorage.setItem('cartItems', JSON.stringify(state.cart))
-    },
-    DecrementReducer:(state,action)=> {
-      state.cart = state.cart.map((item)=>{
-        return item.id == action.payload ? {...item , quan: item.quan-1} : item
+        return item.id == action.payload ? {...item, quan: item.quan + 1} : item 
       })
-      localStorage.setItem('cartItems', JSON.stringify(state.cart))
+      localStorage.setItem("cartItems", JSON.stringify(state.cart))
+    },
+    DecrementReducer: (state, action)=> {
+      state.cart = state.cart.map((item)=>{
+        return item.id == action.payload ? {...item, quan: item.quan -1 } : item
+        
+      })
+      localStorage.setItem("cartItems", JSON.stringify(state.cart))
     }
   },
 })

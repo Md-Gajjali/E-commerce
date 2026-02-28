@@ -8,13 +8,12 @@ import { IoIosArrowUp } from "react-icons/io";
 
 
 
-const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,count,quantity}) => {
+const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,quantity}) => {
 
-  const [counted,setCounted] = useState(0)
 
   const notify = () => toast.error('removed', {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -32,7 +31,7 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,count,
   }
 
   const  handleIncre =() =>{
-      dispatch(IncrementReducer(id))
+    dispatch(IncrementReducer(id))
   }
 
   const handleDecre = () => {
