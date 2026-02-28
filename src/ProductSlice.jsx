@@ -40,8 +40,7 @@ export const ProductSlice = createSlice({
     },
     DecrementReducer: (state, action)=> {
       state.cart = state.cart.map((item)=>{
-        return item.id == action.payload ? {...item, quan: item.quan -1 } : item
-        
+        return item.id == action.payload ? {...item, quan: item.quan -1 } : item        
       })
       localStorage.setItem("cartItems", JSON.stringify(state.cart))
     }
