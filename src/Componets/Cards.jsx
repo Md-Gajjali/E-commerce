@@ -114,8 +114,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
             <h3 className={`absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
               text-xs text-white rounded-sm  ${disHidden}`}>-{DisParcentge}</h3>
             <div className='absolute top-3 right-3 flex flex-col gap-y-4 py-3'>
-              <div className=' h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25'>
-                <FaRegHeart className={`${disHeart} text-2xl  cursor-pointer`} onClick={handleWishlist} />
+              <div className={`${disHeart} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
+                <FaRegHeart className=' text-2xl  cursor-pointer' onClick={handleWishlist} />
               </div>
               <div className={`h-8.5  w-8.5 bg-white rounded-full flex justify-center cursor-pointer items-center p-1.25 `}>
                 <FiEye className={`${disEye}  text-2xl  `} /> <span onClick={handleRemove} className='cursor-pointer text-2xl  '>{Delete}</span>
