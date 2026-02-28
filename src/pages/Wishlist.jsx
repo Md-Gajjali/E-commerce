@@ -10,7 +10,6 @@ import { BsTrash } from "react-icons/bs";
 
 
 const Wishlist = () => {
-
     const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
 
 
@@ -33,7 +32,7 @@ const Wishlist = () => {
                                     discountPrice={item.price}
                                     DisParcentge={item.discountPercentage}
                                     btn='Add TO Card'
-                                    disEye='hidden'
+                                    // disEye='hidden'
                                     disRating='hidden'
                                     disReview='hidden'
                                     disHeart='hidden '
@@ -57,7 +56,7 @@ const Wishlist = () => {
                         discountPrice='400'
                         DisParcentge='70'
                         btn='Add TO Card'
-                        disEye='hidden'
+                        disHeart='hidden'
                         disRating='hidden'
                         disReview='hidden'
                     />
@@ -68,7 +67,8 @@ const Wishlist = () => {
                         discountPrice='400'
                         DisParcentge='70'
                         btn='Add TO Card'
-                        disEye='hidden'
+                        // disEye='hidden'
+                        disHeart='hidden'
                         disRating='hidden'
                         disReview='hidden'
                     />
@@ -79,7 +79,7 @@ const Wishlist = () => {
                         discountPrice='400'
                         DisParcentge='70'
                         btn='Add TO Card'
-                        disEye='hidden'
+                        disHeart='hidden'
                         disRating='hidden'
                         disReview='hidden'
                     /> 
@@ -90,7 +90,7 @@ const Wishlist = () => {
                         discountPrice='400'
                         DisParcentge='70'
                         btn='Add TO Card'
-                        disEye='hidden'
+                        disHeart='hidden'
                         disRating='hidden'
                         disReview='hidden'
                     />

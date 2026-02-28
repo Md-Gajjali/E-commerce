@@ -46,14 +46,6 @@ const ProductDetails = () => {
     }, [id])
 
 
-
-    function handleClick() {
-        console.log('hellooooooo')
-        
-    }
-
-
-
     // const handleIncrement = () => {
     //     setState(state + 1)
     // }
