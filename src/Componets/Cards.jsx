@@ -6,7 +6,7 @@ import Flex from './Flex';
 import { Rate } from 'antd';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
-import { CartReducer, RemoveReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
+import { CartReducer, RemoveReducer, SubTotalReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
 import { toast, Bounce ,Flip} from 'react-toastify';
 
 
@@ -80,6 +80,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     const matchItem = CartProduct.find((item) => item.id === productDetails.id)
     if (!matchItem) {
       dispatch(CartReducer({...productDetails , quan: 1}))
+      dispatch(SubTotalReducer())
     }
     notify(matchItem)
   }

@@ -4,6 +4,7 @@ const initialState = {
   value: [],
   cart: JSON.parse(localStorage.getItem('cartItems')) || [],
   Wishlist: JSON.parse(localStorage.getItem('WishlistItems')) || [] ,
+  subTotal: 0,
 }
 
 export const ProductSlice = createSlice({
@@ -43,11 +44,14 @@ export const ProductSlice = createSlice({
         return item.id == action.payload ? {...item, quan: item.quan -1 } : item        
       })
       localStorage.setItem("cartItems", JSON.stringify(state.cart))
+    },
+    SubTotalReducer: (state,)=> {
+      state.subTotal = state.cart.reduce((current,item)=> current + (item.quan * item.price),0)
     }
   },
 })
 
-export const { GetProducts,DecrementReducer,IncrementReducer,FilterReducer,RemoveReducer,WishlistRemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
+export const { GetProducts,SubTotalReducer,DecrementReducer,IncrementReducer,FilterReducer,RemoveReducer,WishlistRemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer
 

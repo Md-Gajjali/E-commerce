@@ -5,10 +5,19 @@ import CartItems from '../Componets/CartItems'
 import Flex from '../Componets/Flex'
 import Button from '../Componets/Button'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
+
 
 const Cart = () => {
-  
+    let Navigate = useNavigate();
   const CartProduct = useSelector((state) => state.AllProducts.cart)
+  const subtotal = useSelector((state) => state.AllProducts.subTotal)
+  console.log(subtotal)
+
+
+  const handleShop = () => {
+    Navigate(`/Shop`)
+  }
 
   return (
     <div>
@@ -41,7 +50,7 @@ const Cart = () => {
           }
         </div>
         <Flex className='justify-between mt-6'>
-          <Button className='border text-black! hover:bg-primary hover:text-white! ease-in-out duration-400'>Return To Shop</Button>
+          <Button className='border text-black! hover:bg-primary hover:text-white! ease-in-out duration-400' onclick={handleShop}>Return To Shop</Button>
           <Button className='border text-black! hover:bg-primary hover:text-white! ease-in-out duration-400'>Update Cart</Button>
         </Flex>
         <div className='mt-20 flex justify-between gap-43.25'>
@@ -54,15 +63,15 @@ const Cart = () => {
               <h2>Cart Total</h2>
               <Flex className='border-b-2 border-[#929395] mt-6 py-2 justify-between'>
                 <p>Subtotal:</p>
-                <p>$1750</p>
+                <p>${Number(subtotal).toFixed(2)}</p>
               </Flex>
               <Flex className='border-b-2 border-[#929395] mt-6 py-2 justify-between'>
-                <p>Shipping::</p>
+                <p>Shipping:</p>
                 <p>Free</p>
               </Flex>
               <Flex className='  mt-6  justify-between'>
                 <p>Total:</p>
-                <p>$1750</p>
+                <p>${Number(subtotal).toFixed(2)}</p>
               </Flex>
               <Button className='w-65 h-14 bg-primary mx-auto mt-4'  >Procees to checkout</Button>
             </div>

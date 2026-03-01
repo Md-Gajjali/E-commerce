@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch } from 'react-redux';
-import { DecrementReducer, IncrementReducer, RemoveReducer } from '../ProductSlice';
+import { DecrementReducer, IncrementReducer, RemoveReducer, SubTotalReducer } from '../ProductSlice';
 import {  toast ,Bounce} from 'react-toastify';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -11,6 +11,7 @@ import { IoIosArrowUp } from "react-icons/io";
 const CartItems = ({ ImgSrc, productName, price,  className, id ,quantity}) => {
 
 
+  
   const notify = () => toast.error('removed', {
     position: "top-right",
     autoClose: 1500,
@@ -27,16 +28,19 @@ const CartItems = ({ ImgSrc, productName, price,  className, id ,quantity}) => {
 
   function handleRemove() {
     dispatch(RemoveReducer(id))
+    dispatch(SubTotalReducer())
     notify()
   }
 
   const  handleIncre =() =>{
     dispatch(IncrementReducer(id))
+    dispatch(SubTotalReducer())
   }
 
   const handleDecre = () => {
     if (quantity > 1) {
       dispatch(DecrementReducer(id))
+      dispatch(SubTotalReducer())
     }
   }
   
@@ -58,7 +62,7 @@ const CartItems = ({ ImgSrc, productName, price,  className, id ,quantity}) => {
           <IoIosArrowDown className='block'onClick={handleDecre}/>
         </div>
       </div>
-      <h4 className='font-normal font-pop text-[16px] w-15 '>${Number((quantity * price).toFixed(2))}</h4>
+      <h4 className='font-normal font-pop text-[16px] w-15 '>${Number(quantity * price).toFixed(2)}</h4>
       {/* <h4 className='font-normal font-pop text-[16px] w-15 '>${Math.round(quantity * price)}</h4> */}
     </div>
   )
