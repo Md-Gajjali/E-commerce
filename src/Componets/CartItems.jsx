@@ -8,7 +8,7 @@ import { IoIosArrowUp } from "react-icons/io";
 
 
 
-const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,quantity}) => {
+const CartItems = ({ ImgSrc, productName, price,  className, id ,quantity}) => {
 
 
   const notify = () => toast.error('removed', {
@@ -58,7 +58,8 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,quanti
           <IoIosArrowDown className='block'onClick={handleDecre}/>
         </div>
       </div>
-      <h4 className='font-normal font-pop text-[16px] w-15 '>${(quantity * price).toFixed(2)}</h4>
+      <h4 className='font-normal font-pop text-[16px] w-15 '>${Number((quantity * price).toFixed(2))}</h4>
+      {/* <h4 className='font-normal font-pop text-[16px] w-15 '>${Math.round(quantity * price)}</h4> */}
     </div>
   )
 }
