@@ -50,15 +50,15 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,quanti
         </div>
         <h3 className='font-normal font-pop text-[16px] w-50'>{productName}</h3>
       </div>
-      <h3 className='font-normal font-pop text-[16px] '>${price}</h3>
-      <div className='flex items-center py-2 px-5 gap-2 border'>
+      <h3 className='font-normal font-pop text-[16px] w-10'>${price}</h3>
+      <div className='flex items-center py-2 px-5 gap-2 border w-20'>
         {quantity}
         <div className='grid '>
           <IoIosArrowUp  className='block' onClick={handleIncre}/>
           <IoIosArrowDown className='block'onClick={handleDecre}/>
         </div>
       </div>
-      <h4 className='font-normal font-pop text-[16px] '>${subtotal}</h4>
+      <h4 className='font-normal font-pop text-[16px] w-15 '>${(quantity * price).toFixed(2)}</h4>
     </div>
   )
 }
