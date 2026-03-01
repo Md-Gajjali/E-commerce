@@ -35,7 +35,9 @@ const CartItems = ({ ImgSrc, productName, price, subtotal, className, id ,quanti
   }
 
   const handleDecre = () => {
-    dispatch(DecrementReducer(id))
+    if (quantity > 1) {
+      dispatch(DecrementReducer(id))
+    }
   }
   
 
