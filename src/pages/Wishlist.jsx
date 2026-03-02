@@ -12,7 +12,6 @@ import { BsTrash } from "react-icons/bs";
 const Wishlist = () => {
     const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
 
-
     return (
         <div>
             <Container>

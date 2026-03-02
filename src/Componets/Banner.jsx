@@ -31,7 +31,7 @@ const Banner = () => {
       ),
       customPaging: i => (
         <div className='w-3 h-3 rounded-full bg-[#808080] '/>
-      ),
+      )
     //   responsive: [
     //   {
     //     breakpoint: 1024,
@@ -70,7 +70,7 @@ const Banner = () => {
   return (
     <div className='relative border-t border-[#00000061] px-3 lg:px-static'>
       <Container>
-        <div className=' gap-12.25   lg:flex '>
+        <div className=' gap-12.25  lg:flex '>
             <div className={`${show ? "block" :"hidden" } lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop`} >
                 <ul className='banner-ul lg:gap-y-16 mt-10   lg:block '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
