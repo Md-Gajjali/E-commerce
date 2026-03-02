@@ -10,6 +10,8 @@ import { LuChartBarStacked } from "react-icons/lu";
 
 
 const Banner = () => {
+
+
     var settings = {
     dots: true,
     infinite: true,
