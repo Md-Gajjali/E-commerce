@@ -67,7 +67,7 @@ const Cart = () => {
               </Flex>
               <Flex className='border-b-2 border-[#929395] mt-6 py-2 justify-between'>
                 <p>Shipping:</p>
-                <p>Free</p>
+                 <p>Free</p>
               </Flex>
               <Flex className='  mt-6  justify-between'>
                 <p>Total:</p>

@@ -42,7 +42,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
       draggable: true,
       progress: undefined,
       theme: "light",
-      transition: Flip,
+      transition: Flip
     });
 
 
