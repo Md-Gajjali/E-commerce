@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 import { CartReducer, RemoveReducer, SubTotalReducer, WishlistReducer, WishlistRemoveReducer } from '../ProductSlice';
 import { toast, Bounce ,Flip} from 'react-toastify';
+import { FaHeart } from "react-icons/fa6";
 
 
 
@@ -15,6 +16,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
 
   let navigate = useNavigate();
   const dispatch = useDispatch();
+  const [change,setChange]= useState(false)
   const CartProduct = useSelector((state) => state.AllProducts.cart)
   const Whishlist = useSelector((state) => state.AllProducts.Wishlist)
 
@@ -93,7 +95,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
       dispatch(WishlistReducer(productDetails))
     } 
       notify(matchItem)
-    
+    setChange(!change)
   }
 
   
@@ -115,9 +117,14 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
             <h3 className={`absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
               text-xs text-white rounded-sm  ${disHidden}`}>-{DisParcentge}</h3>
             <div className='absolute top-3 right-3 flex flex-col gap-y-4 py-3'>
-              <div className={`${disHeart} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
+              {
+                change ?<div className={`${disHeart} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
+                <FaHeart  className=' text-2xl  cursor-pointer' onClick={handleWishlist} />
+              </div>   :  <div className={`${disHeart} h-8.5  w-8.5 bg-white rounded-full flex justify-center items-center p-1.25`}>
                 <FaRegHeart className=' text-2xl  cursor-pointer' onClick={handleWishlist} />
               </div>
+              }
+             
               <div className={`h-8.5  w-8.5 bg-white rounded-full flex justify-center cursor-pointer items-center p-1.25 `}>
                 <FiEye className={`${disEye}  text-2xl  `} /> <span onClick={handleRemove} className='cursor-pointer text-2xl  '>{Delete}</span>
               </div>
