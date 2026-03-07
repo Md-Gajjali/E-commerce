@@ -68,7 +68,7 @@ const Banner = () => {
 
 
   return (
-    <div className='relative border-t border-[#00000061] px-3 lg:px-static'>
+    <div className='relative  px-3 lg:px-static'>
       <Container>
         <div className=' gap-12.25  lg:flex '>
             <div className={`${show ? "block" :"hidden" } lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop`} >

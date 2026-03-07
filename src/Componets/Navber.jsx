@@ -15,13 +15,27 @@ import { IoCartOutline } from "react-icons/io5";
 const Navber = () => {
 
   const [show, setShow] = useState(false)
+  const [value,setValue]= useState('')
+  const [products,setProducts]= useState([])
   const Product = useSelector((state) => state.AllProducts.cart)
   const Wishlist = useSelector((state) => state.AllProducts.Wishlist)
-
+  const data = useSelector((state) => state.AllProducts.value)
 
   const handleClick = () => {
     setShow(!show)
   }
+
+
+  const handleChange = (e) => {
+    setValue(e.target.value)
+    if (value === "") {
+      setProducts([])
+    }else{
+      setProducts(data.filter((item)=> item.title.toLocaleLowerCase().includes(value.
+        toLocaleLowerCase())))
+    }
+  }
+
 
 
   return (
@@ -52,8 +66,18 @@ const Navber = () => {
               <div className='relative flex '>
                 <input type="text"
                   placeholder='What are you looking for?'
-                  className='rounded-sm outline-none  text-xs w-30 lg:w-static   bg-[#F5F5F5] lg:w-60.75 ps-5 pe-17.5 py-2.75  ' />
+                  className='rounded-sm outline-none  text-xs w-30 lg:w-static   bg-[#F5F5F5] lg:w-60.75 ps-5 pe-17.5 py-2.75  ' 
+                  onChange={handleChange}/>
                 <SlMagnifier className='text-2xl absolute top-2 right-4' />
+                <div>
+                  <ul className='w-ful bg-white text-black absolute top-10 left-0'>
+                    {
+                      products.map((item,idx)=>{
+                        return <li key={idx} className='border-b-2 p-2'>{item.title}</li>
+                      })
+                    }
+                  </ul>
+                </div>
               </div>
               <div className=' text-[32px] gap-4 flex '>
                 <NavLink to='Wishlist' >
@@ -76,8 +100,6 @@ const Navber = () => {
         </Container>
       </nav>
       <div className='border-t border-[#00000061]' />
-
-
     </>
   )
 }

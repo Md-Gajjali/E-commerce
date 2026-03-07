@@ -94,8 +94,8 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
     if (!matchItem) {
       dispatch(WishlistReducer(productDetails))
     } 
-      notify(matchItem)
     setChange(!change)
+      notify(matchItem)
   }
 
   
@@ -110,9 +110,9 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
 
   return (
     <>
-      <div className='w-67.5 mt-10 group ' >
+      <div className='w-67.5 mt-10 group -z-20' >
         <div className='relative overflow-hidden '>
-          <img src={ImgSrc} alt="" className='cursor-pointer' onClick={handleProductDetails} />
+          <img src={ImgSrc} alt="" className='cursor-pointer  ' onClick={handleProductDetails} />
           <div className='discount'>
             <h3 className={`absolute top-3 left-3 py-1 px-3 mt-4  bg-primary 
               text-xs text-white rounded-sm  ${disHidden}`}>-{DisParcentge}</h3>
