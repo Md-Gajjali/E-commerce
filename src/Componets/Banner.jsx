@@ -68,11 +68,11 @@ const Banner = () => {
 
 
   return (
-    <div className='relative  px-3 lg:px-static'>
+    <div className='relative px-3 lg:px-static'>
       <Container>
-        <div className=' gap-12.25  lg:flex '>
+        <div className=' gap-12.25  lg:flex  '>
             <div className={`${show ? "block" :"hidden" } lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop`} >
-                <ul className='banner-ul lg:gap-y-16 mt-10   lg:block '>
+                <ul className=' banner-ul lg:gap-y-16 mt-10   lg:block '>
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li>Electronics</li>
@@ -100,7 +100,7 @@ const Banner = () => {
                </Slider>
             </div>
         </div>
-        <LuChartBarStacked className='absolute top-6 left-0 -mt-4  lg:hidden' onClick={handleClick}/>
+        <LuChartBarStacked className='absolute top-26 left-0 -mt-25    lg:hidden' onClick={handleClick}/>
 
       </Container>
     </div>

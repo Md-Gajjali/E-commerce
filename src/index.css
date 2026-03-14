@@ -24,6 +24,7 @@
   }
 }
 /* MusicExperience  */
+
 .time h2{
   background-repeat:no-repeat;
 }
@@ -33,6 +34,7 @@
 /* navUl */
 .navUl li{
   border-bottom: 1px solid white;
+  padding: 5px;
 }
 /* navUl */
 
