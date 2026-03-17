@@ -22,10 +22,10 @@ const MusicExperience = () => {
   return (
     <div className=' py-35'>
       <Container>
-        <div className=' bg-[url(assets/JBL.png)] w-full h-105 py-17.75 px-14  md:h-130 bg-center bg-no-repeat bg-cover'>
+        <div className=' bg-[url(assets/JBL.png)] w-full h-105 py-17.75  lg:px-14 px-3  md:h-130 bg-center bg-no-repeat bg-cover'>
             <p className='text-[16px] mt-8 font-pop text-[#00FF66] '>Categories</p>
-            <h2 className='w-100  text-white text-[48px] font-semibold  leading-15 font-inter '>Enhance Your Music Experience</h2>
-            <Flex className='MusicExprience text-white gap-2 mt-8 time'>
+            <h2 className='w-100  text-white lg:text-[48px] text-[20px] font-semibold  leading-15 font-inter '>Enhance Your Music Experience</h2>
+            <Flex className='MusicExprience text-white gap-2 lg:mt-8 time'>
                 <h2><span className=''>{time.hours}<p>Hour</p></span></h2>
                 <h2><span>0{time.days} <p >Days</p></span></h2>
                 <h2><span>{time.minutes} <p>Minutes</p></span> </h2>

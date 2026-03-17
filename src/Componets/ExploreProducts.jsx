@@ -91,7 +91,7 @@ const ExploreProducts = () => {
             title='Our Products'
             heading='Explore Our Products'
         />
-        <Flex className='flex-wrap  gap-10'>
+        <Flex className='flex-wrap  gap-10 '>
             <Slider {...settings} className=' w-full mt-15  '>
                 <Cards 
                   ImgSrc={jacket}

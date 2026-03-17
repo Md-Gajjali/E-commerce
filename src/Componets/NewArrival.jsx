@@ -14,7 +14,7 @@ const NewArrival = () => {
                         heading='New Arrival'
                     />
                 </div>
-                <div className="grid grid-cols-2 gap-4 items-start mt-15">
+                <div className="grid lg:grid-cols-2 gap-4 items-start mt-15">
                     <div className="col-span-1 row-span-2 ">
                         <div className=' bg-[url(assets/New-Arrival/Ps5.png)]  h-105  relative  md:h-130 bg-center bg-no-repeat bg-cover text-white px-7.5  py-22.25' >
                             

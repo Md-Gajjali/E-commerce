@@ -8,7 +8,7 @@ const Delivery = () => {
   return (
     <div>
       <Container>
-        <Flex className='justify-center  gap-22 mt-34'>
+        <div className='justify-center  flex flex-wrap gap-22 mt-34'>
             <DeliveryCards 
                 imgSrc={service}
                 title='FREE AND FAST DELIVERY'
@@ -25,7 +25,7 @@ const Delivery = () => {
                 heading='Free delivery for all orders over $140'
             />
 
-        </Flex>
+        </div>
       </Container>
     </div>
   )

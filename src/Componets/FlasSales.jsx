@@ -90,16 +90,16 @@ const FlasSales = () => {
     <>
       <div className='mt-38.5 px-3'>
         <Container >
-          <Flex className='items-end'>
+          <div className='lg:flex items-end   '>
             <SecHeading
               title="Today’s"
               heading="Flash Sales"
 
             />
-            <CountDown className='lg:pl-21.75' />
-          </Flex>
+            <CountDown className='lg:pl-21.75 lg:mt-13 mt-4' />
+          </div>
           <Flex>
-            <Slider {...settings} className='w-full grid lg:grid-col-4  grid-cols-2'>
+            <Slider {...settings} className='w-full   grid lg:grid-col-4  grid-cols-2'>
               <Cards
                 ImgSrc={console}
                 title='HAVIT HV-G92 Gamepad'

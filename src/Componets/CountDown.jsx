@@ -5,7 +5,7 @@ import Flex from './Flex';
 
 const CountDown = ({className}) => {
 
-    const conduct_date = '2026-03-13 16:00:00';
+    const conduct_date = '2026-05-13 16:00:00';
     const [time,setTime]= useState([])
     
     
@@ -17,11 +17,11 @@ const CountDown = ({className}) => {
     },[])
 
   return (
-    <Flex className={`gap-2.5 text-[32px] font-bold font-Inter ${className}`}>
-        <h2><p className='text-xs font-medium font-pop'>Days</p>{time.days} :</h2>
-        <h2><p className='text-xs'>Hour</p>{time.hours} :</h2>
-        <h2><p className='text-xs'>Minutes</p>{time.minutes} :</h2>
-        <h2><p className='text-xs'>Second</p>{time.seconds}</h2>
+    <Flex className={`lg:gap-2.5 gap-2 lg:text-[32px] text-[17px] font-bold font-Inter ${className}`}>
+        <h2><p className='lg:text-xs text-xs font-medium font-pop'>Days</p>{time.days} :</h2>
+        <h2><p className='lg:text-xs text-xs '>Hour</p>{time.hours} :</h2>
+        <h2><p className='lg:text-xs text-xs '>Minutes</p>{time.minutes} :</h2>
+        <h2><p className='lg:text-xs text-xs '>Second</p>{time.seconds}</h2>
     </Flex>
   )
 }
