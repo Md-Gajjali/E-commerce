@@ -5,31 +5,17 @@ import Breadcrumb from '../Componets/Breadcrumb'
 import Paginate from '../Componets/paginate';
 import Skeleton from '../Componets/Skeleton';
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CetegoryReducer, FilterReducer, GetProducts } from '../ProductSlice';
 
 
 const Shop = () => {
-    const [product, setProduct] = useState([])
+    const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
     const [category, setCetegory] = useState([])
     const [value, setValue] = useState(6)
 
-
-    const dispatch = useDispatch()
-
-    async function getAllData() {
-        await axios.get('https://dummyjson.com/products')
-            .then((res) => {
-                setProduct(res.data.products)
-                setLoading(true)
-                dispatch(GetProducts(res.data.products))
-            })
-    }
-
-    useEffect(() => {
-        getAllData()
-    }, [])
+    const {value: product} = useSelector((state)=> state.AllProducts)
 
 
     useEffect(() => {
@@ -38,10 +24,16 @@ const Shop = () => {
         dispatch(CetegoryReducer(UniqueCetegory))
     }, [product])
 
-    const handleFilter = (items) => {
-        const FilterItem = product.filter((cetegoryItem) => cetegoryItem.category == items)
-        dispatch(FilterReducer(FilterItem))
-    }
+    // const handleFilter = (items) => {
+    //     const FilterItem = product.filter((cetegoryItem) => cetegoryItem.category == items)
+    //     dispatch(FilterReducer(FilterItem))
+    // }
+
+    useEffect(()=> {
+        if (product.length > 0) {
+            setLoading(true)
+        }
+    },[product])
 
     return (
         <>

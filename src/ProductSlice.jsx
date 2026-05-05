@@ -1,4 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+var a = 1233;
+
+import { createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
   value: [],

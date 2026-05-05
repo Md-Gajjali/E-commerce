@@ -25,5 +25,6 @@ export default defineConfig([
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
+    "eslint-disable": "react-refresh/only-export-components"
   },
 ])

@@ -40,6 +40,7 @@ function SampleNextArrow(props) {
 
 const FlasSales = () => {
   
+  const {value: Product} = useSelector((state)=> state.AllProducts)
 
 
   const settings = {
@@ -91,8 +92,7 @@ const FlasSales = () => {
   };
 
   
-  const Products = useSelector((state)=> state.AllProducts.cart);
-  console.log(Products)
+
   return (
     <>
       <div className='mt-38.5 px-3'>
@@ -108,8 +108,8 @@ const FlasSales = () => {
           <Flex>
             <Slider {...settings} className='w-full   grid lg:grid-col-4  grid-cols-2'>
               
-              {/* {
-                Products.map((item)=>{
+              {
+                Product?.map((item)=>{
                   return(
                 <Cards
                 ImgSrc={consoleImg}
@@ -122,7 +122,7 @@ const FlasSales = () => {
               />
                   )
                 })
-              } */}
+              }
 
             </Slider>
 
