@@ -6,7 +6,7 @@ import Paginate from '../Componets/paginate';
 import Skeleton from '../Componets/Skeleton';
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { FilterReducer, GetProducts } from '../ProductSlice';
+import { CetegoryReducer, FilterReducer, GetProducts } from '../ProductSlice';
 
 
 const Shop = () => {
@@ -35,6 +35,7 @@ const Shop = () => {
     useEffect(() => {
         const UniqueCetegory = [...new Set(product.map((item) => item.category))]
         setCetegory(UniqueCetegory);
+        dispatch(CetegoryReducer(UniqueCetegory))
     }, [product])
 
     const handleFilter = (items) => {

@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
   value: [],
+  cat: [],
   cart: JSON.parse(localStorage.getItem('cartItems')) || [],
   Wishlist: JSON.parse(localStorage.getItem('WishlistItems')) || [] ,
   subTotal: 0,
 }
-
 export const ProductSlice = createSlice({
   name: 'value',
   initialState,
@@ -16,6 +16,9 @@ export const ProductSlice = createSlice({
     },
     FilterReducer:(state,action)=>{
         state.value = action.payload
+    },
+    CetegoryReducer:(state,action)=>{
+        state.cat =  action.payload
     },
     CartReducer:(state,action)=>{
         state.cart = [...state.cart , action.payload]
@@ -51,7 +54,7 @@ export const ProductSlice = createSlice({
   },
 })
 
-export const { GetProducts,SubTotalReducer,DecrementReducer,IncrementReducer,FilterReducer,RemoveReducer,WishlistRemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
+export const { GetProducts,SubTotalReducer,DecrementReducer,CetegoryReducer,IncrementReducer,FilterReducer,RemoveReducer,WishlistRemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer
 

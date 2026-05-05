@@ -2,7 +2,7 @@ import React from 'react'
 import SecHeading from './SecHeading'
 import Container from './Container'
 import Cards from './Cards'
-import console from '../assets/console.png'
+import consoleImg from '../assets/console.png'
 import LAD from '../assets/LAD.png'
 import keyboard from '../assets/keyBoard.png'
 import kedara from '../assets/Frame 570.png'
@@ -12,6 +12,7 @@ import Button from './Button'
 import Slider from "react-slick";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import { useSelector } from 'react-redux'
 
 
 
@@ -37,8 +38,10 @@ function SampleNextArrow(props) {
 
 
 
-
 const FlasSales = () => {
+  
+
+
   const settings = {
     dots: false,
     infinite: true,
@@ -86,6 +89,10 @@ const FlasSales = () => {
       }
     ]
   };
+
+  
+  const Products = useSelector((state)=> state.AllProducts.cart);
+  console.log(Products)
   return (
     <>
       <div className='mt-38.5 px-3'>
@@ -100,61 +107,22 @@ const FlasSales = () => {
           </div>
           <Flex>
             <Slider {...settings} className='w-full   grid lg:grid-col-4  grid-cols-2'>
-              <Cards
-                ImgSrc={console}
-                title='HAVIT HV-G92 Gamepad'
+              
+              {/* {
+                Products.map((item)=>{
+                  return(
+                <Cards
+                ImgSrc={consoleImg}
+                title={item.title}
                 price='120'
                 discountPrice='160'
                 DisParcentge='40%'
                 Review='88'
                 btn='Add to Card'
               />
-              <Cards
-                ImgSrc={keyboard}
-                title='HAVIT HV-G92 Gamepad'
-                price='120'
-                discountPrice='160'
-                DisParcentge='40%'
-                Review='88'
-                btn='Add to Card'
-              />
-              <Cards
-                ImgSrc={LAD}
-                title='HAVIT HV-G92 Gamepad'
-                price='120'
-                discountPrice='160'
-                DisParcentge='40%'
-                Review='88'
-                btn='Add to Card'
-              />
-              <Cards
-                ImgSrc={kedara}
-                title='HAVIT HV-G92 Gamepad'
-                price='120'
-                discountPrice='160'
-                DisParcentge='40%'
-                Review='88'
-                btn='Add to Card'
-              />
-              <Cards
-                ImgSrc={console}
-                title='HAVIT HV-G92 Gamepad'
-                price='120'
-                discountPrice='160'
-                DisParcentge='40%'
-                Review='88'
-                btn='Add to Card'
-              />
-
-              <Cards
-                ImgSrc={console}
-                title='HAVIT HV-G92 Gamepad'
-                price='120'
-                discountPrice='160'
-                DisParcentge='40%'
-                Review='88'
-                btn='Add to Card'
-              />
+                  )
+                })
+              } */}
 
             </Slider>
 

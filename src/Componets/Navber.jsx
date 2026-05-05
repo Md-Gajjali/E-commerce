@@ -31,8 +31,7 @@ const Navber = () => {
     if (value === "") {
       setProducts([])
     }else{
-      setProducts(data.filter((item)=> item.title.toLocaleLowerCase().includes(value.
-        toLocaleLowerCase())))
+      setProducts(data.filter((item)=> item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())))
     }
   }
 
@@ -53,10 +52,13 @@ const Navber = () => {
                   <NavLink to="/" end>Home</NavLink>
                 </li>
                 <li >
-                  <NavLink to="/Contact" end>Contact</NavLink>
+                  <NavLink to="/shop" end>Shop</NavLink>
                 </li>
                 <li >
-                  <NavLink to="/About" end>About</NavLink>
+                  <NavLink to="/contact" end>Contact</NavLink>
+                </li>
+                <li >
+                  <NavLink to="/about" end>About</NavLink>
                 </li>
                 <li >
                   <NavLink to="/sign" end>Sign up</NavLink>

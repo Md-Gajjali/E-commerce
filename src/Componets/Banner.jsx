@@ -7,9 +7,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LuChartBarStacked } from "react-icons/lu";
+import { useSelector } from 'react-redux';
 
 
 const Banner = () => {
+
+      const cat = useSelector((state)=> state.AllProducts.cat)
+      // console.log(cat)
 
 
     var settings = {
@@ -70,9 +74,16 @@ const Banner = () => {
   return (
     <div className='relative px-3 lg:px-static'>
       <Container>
-        <div className=' gap-12.25  lg:flex  '>
-            <div className={`${show ? "block" :"hidden" } lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop`} >
+        <div className=' gap-12.25 w-full lg:flex  '>
+            {/* <div className={`${show ? "block" :"hidden" } lg:border-r border-[#00000061] pe-4.5 lg:w-[30%] font-pop`} >
                 <ul className=' banner-ul lg:gap-y-16 mt-10   lg:block '>
+                  {
+                    cat.map((item)=>{
+                      return(
+                        <li className='text-[20px] pb-5'>{item}</li>
+                      )
+                    })
+                  }
                     <li className='flex items-center justify-between  '>Woman’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li className='flex  items-center justify-between  '>Men’s Fashion <IoIosArrowForward className='text-2xl' /></li>
                     <li>Electronics</li>
@@ -84,18 +95,18 @@ const Banner = () => {
                     <li>Groceries &  </li>
                     <li>Health & Beauty</li>
                 </ul>
-            </div>
-            <div className='pt-10 w-full lg:w-[70%] '> 
+            </div> */}
+            <div className='pt-10 w-full '> 
               
                <Slider {...settings} className=' overflow-hidden' >
                 <div>
-                  <h3><img src={bannerImg} alt="" /></h3>
+                  <h3><img src={bannerImg} alt="" className='w-full' /></h3>
                 </div>
                 <div>
-                  <h3><img src={bannerImg} alt=""  /></h3>
+                  <h3><img src={bannerImg} alt=""   className='w-full'/></h3>
                 </div>
                 <div>
-                  <h3><img src={bannerImg} alt="" /></h3>
+                  <h3><img src={bannerImg} alt=""  className='w-full'/></h3>
                 </div>
                </Slider>
             </div>
