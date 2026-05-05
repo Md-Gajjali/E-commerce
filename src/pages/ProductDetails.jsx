@@ -87,17 +87,17 @@ const ProductDetails = () => {
                     <Breadcrumb />
                     {
                         loading ? <> <Skeleton2 /></> : <><Flex className=' justify-between mt-20 '>
-                        <div className='flex  gap-7.5  items-center '>
+                        <div className='flex  gap-7.5  '>
                             <div className='h-170'>
                                 {
                                     productImgese.map((item) => {
                                         return (
-                                            <img className='w-42.5 h-34.5 ' src={item} alt="" />
+                                                <img className='w-42.5 h-34.5 mb-4  flex bg-[#F5F5F5] justify-center items-center' src={item} alt="" />
                                         )
                                     })
                                 }
                             </div>
-                            <div>
+                            <div className='bg-[#F5F5F5] flex justify-center items-center'>
                                 <img className='w-125  ' src={product.thumbnail} alt="" />
                             </div>
                         </div>
