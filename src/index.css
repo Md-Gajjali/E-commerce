@@ -61,7 +61,9 @@
     background-color:#DB4444 ;
     border: 2px solid white;
 }
-
+.slick-list{
+  padding: 0px 20px !important;
+}
 /* 
 .slick-slide{
   display: flex !important;

@@ -13,6 +13,7 @@ import Slider from "react-slick";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router";
 
 
 
@@ -41,6 +42,11 @@ function SampleNextArrow(props) {
 const FlasSales = () => {
   
   const {value: Product} = useSelector((state)=> state.AllProducts)
+  let navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate('/Shop')
+  }
 
 
   const settings = {
@@ -112,12 +118,13 @@ const FlasSales = () => {
                 Product?.map((item)=>{
                   return(
                 <Cards
-                ImgSrc={consoleImg}
+                ImgSrc={item.thumbnail}
                 title={item.title}
-                price='120'
-                discountPrice='160'
-                DisParcentge='40%'
-                Review='88'
+                price={Math.round(item.price - (item.price * item.discountPercentage) / 100)}
+                discountPrice={item.price}
+                DisParcentge={item.discountPercentage}
+                Review={item.reviews ? item.reviews.length : null}
+                rating={item.rating || 0 }
                 btn='Add to Card'
               />
                   )
@@ -127,7 +134,7 @@ const FlasSales = () => {
             </Slider>
 
           </Flex>
-          <Button className='bg-primary w-60.75 mx-auto mt-9.25 mb-15  '>View All Products</Button>
+          <Button className='bg-primary w-60.75 mx-auto mt-9.25 mb-15  ' onclick={handleNavigate}>View All Products</Button>
           <div className='border border-[#00000013] mb-20' />
         </Container>
       </div>

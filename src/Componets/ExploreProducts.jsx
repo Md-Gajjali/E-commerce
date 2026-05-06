@@ -11,6 +11,8 @@ import table from '../assets/Selling-Product/table.png'
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import Button from './Button';
+import { useSelector } from 'react-redux';
+import { Navigate, useNavigate } from "react-router";
 
 function SamplePrevArrow(props) {
   const { onClick } = props;
@@ -33,6 +35,7 @@ function SampleNextArrow(props) {
 
 
 const ExploreProducts = () => {
+
   const settings = {
     className: "justify-between",
     centerMode: true,
@@ -84,6 +87,17 @@ const ExploreProducts = () => {
             }
         ]
   };
+
+    const {value:product} = useSelector((state)=> state.AllProducts)
+
+      let navigate = useNavigate();
+    
+
+    const handleNavigate = () => {
+     navigate('/Shop')
+   }
+
+
   return (
     <div>
       <Container>
@@ -91,167 +105,27 @@ const ExploreProducts = () => {
             title='Our Products'
             heading='Explore Our Products'
         />
-        <Flex className='flex-wrap  gap-10 '>
-            <Slider {...settings} className=' w-full mt-15  '>
-                <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden '
-                />
-                <Cards 
-                  ImgSrc={bag}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={speaker}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={table}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                  <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-                />
-                <Cards 
-                  ImgSrc={bag}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={speaker}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={table}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                  <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-                />
-                <Cards 
-                  ImgSrc={bag}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={speaker}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={table}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                  <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-                />
-                <Cards 
-                  ImgSrc={bag}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={speaker}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={table}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
+        <Flex className='flex-wrap '>
+            <Slider {...settings} className=' w-full mt-15 flex justify-center  gap-20   '>
+               {
+                  product.map((item)=>{
+                    return(
+                      <Cards 
+                        ImgSrc={item.thumbnail}
+                        title={item.title}
+                        price={Math.round(item.price - (item.price * item.discountPercentage)/100)}
+                        discountPrice={item.price}
+                        Review={item.review || 0}
+                        rating={item.rating}
+                        btn='Add To Card'
+                        disHidden='hidden'
+                      />
+                    )
+                  })
+                }
             </Slider>
         </Flex>
-        <Button className='bg-primary mx-auto text-[16px] font-pop font-medium mt-15 w-58.5'>View All Products</Button>
+        <Button className='bg-primary mx-auto text-[16px] font-pop font-medium mt-15 w-58.5' onclick={handleNavigate}>View All Products</Button>
       </Container>
     </div>
   )

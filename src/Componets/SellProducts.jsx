@@ -9,6 +9,8 @@ import jacket from '../assets/Selling-Product/jacket.png'
 import speaker from '../assets/Selling-Product/speaker.png'
 import table from '../assets/Selling-Product/table.png'
 import Slider from "react-slick";
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
 
 
@@ -60,6 +62,16 @@ const SellProducts = () => {
             }
         ]
   };
+
+  const {value:product} = useSelector((state)=> state.AllProducts)
+
+  console.log(product)
+
+    let navigate = useNavigate();
+
+    const handleNavigate = () => {
+      navigate("/shop")
+    }
   
   return (
     <>
@@ -70,91 +82,28 @@ const SellProducts = () => {
                     title='This Month'
                     heading='Best Selling Products'
                 />
-                <Button className='w-39.75 bg-primary absolute top-13 right-0 '>
+                <Button className='w-39.75 bg-primary absolute top-13 right-0 ' onclick={handleNavigate}>
                     View All
                 </Button>
             </div>
             <Flex>
               <Slider {...settings} className=' w-full mt-15 overflow-hidden'>
-                <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-                />
-                <Cards 
-                  ImgSrc={bag}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={speaker}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={table}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                  <Cards 
-                  ImgSrc={jacket}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-                />
-                <Cards 
-                  ImgSrc={bag}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={speaker}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-                <Cards 
-                  ImgSrc={table}
-                  title='The north coat'
-                  price='260'
-                  discountPrice='360'
-                  Review='65'
-                  btn='Add To Card'
-                  disHidden='hidden'
-
-                />
-
+                {
+                  product.map((item)=>{
+                    return(
+                      <Cards 
+                        ImgSrc={item.thumbnail}
+                        title={item.title}
+                        price={Math.round(item.price - (item.price * item.discountPercentage)/100)}
+                        discountPrice={item.price}
+                        Review={item.review || 0}
+                        rating={item.rating}
+                        btn='Add To Card'
+                        disHidden='hidden'
+                      />
+                    )
+                  })
+                }
               </Slider>  
             </Flex>
         </Container>
