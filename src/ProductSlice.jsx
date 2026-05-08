@@ -3,7 +3,7 @@ import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
   value: [],
-  cat: [],
+  AllProduct: [],
   cart: JSON.parse(localStorage.getItem('cartItems')) || [],
   Wishlist: JSON.parse(localStorage.getItem('WishlistItems')) || [] ,
   subTotal: 0,
@@ -12,14 +12,14 @@ export const ProductSlice = createSlice({
   name: 'value',
   initialState,
   reducers: {
+    AllProductReducer:(state,action)=>{
+        state.AllProduct = action.payload
+    },
     GetProducts:(state,action)=>{
         state.value = action.payload
     },
     FilterReducer:(state,action)=>{
         state.value = action.payload
-    },
-    CetegoryReducer:(state,action)=>{
-        state.cat =  action.payload
     },
     CartReducer:(state,action)=>{
         state.cart = [...state.cart , action.payload]
@@ -55,7 +55,7 @@ export const ProductSlice = createSlice({
   },
 })
 
-export const { GetProducts,SubTotalReducer,DecrementReducer,CetegoryReducer,IncrementReducer,FilterReducer,RemoveReducer,WishlistRemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
+export const { AllProductReducer ,GetProducts,SubTotalReducer,DecrementReducer,IncrementReducer,FilterReducer,RemoveReducer,WishlistRemoveReducer ,CartReducer , WishlistReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer
 

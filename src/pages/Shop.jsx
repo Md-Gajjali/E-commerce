@@ -6,7 +6,7 @@ import Paginate from "../Componets/paginate";
 import Skeleton from "../Componets/Skeleton";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { CetegoryReducer, FilterReducer, GetProducts } from "../ProductSlice";
+import {  FilterReducer, GetProducts } from "../ProductSlice";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -14,19 +14,20 @@ const Shop = () => {
   const [category, setCetegory] = useState([]);
   const [value, setValue] = useState(6);
 
-  const { value: product } = useSelector((state) => state.AllProducts);
+
+  const { value : product } = useSelector((state) => state.AllProducts);
+  const { AllProduct : productItem } = useSelector((state) => state.AllProducts);
+
+
 
   useEffect(() => {
-    const UniqueCetegory = [...new Set(product.map((item) => item.category))];
+    const UniqueCetegory = [...new Set(productItem.map((item) => item.category))];
     setCetegory(UniqueCetegory);
-    dispatch(CetegoryReducer(UniqueCetegory));
-  }, [product]);
+  }, [productItem]);
 
   const handleFilter = (items) => {
-    const FilterItem = product.filter(
-      (cetegoryItem) => cetegoryItem.category == items,
-    );
-    dispatch(FilterReducer(FilterItem));
+    const FilterItem = productItem.filter((cetegoryItem) => cetegoryItem.category == items);
+    dispatch(FilterReducer(FilterItem))
   };
 
   useEffect(() => {

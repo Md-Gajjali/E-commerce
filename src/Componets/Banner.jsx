@@ -13,7 +13,6 @@ import { useSelector } from 'react-redux';
 const Banner = () => {
 
       const cat = useSelector((state)=> state.AllProducts.cat)
-      // console.log(cat)
 
 
     var settings = {
