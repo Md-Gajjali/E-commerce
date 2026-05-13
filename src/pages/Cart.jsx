@@ -9,10 +9,10 @@ import { useNavigate } from 'react-router'
 
 
 const Cart = () => {
-    let Navigate = useNavigate();
+  
+  let Navigate = useNavigate();
   const CartProduct = useSelector((state) => state.AllProducts.cart)
   const subtotal = useSelector((state) => state.AllProducts.subTotal)
-  console.log(subtotal)
 
 
   const handleShop = () => {

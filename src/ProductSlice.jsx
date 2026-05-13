@@ -15,7 +15,7 @@ export const ProductSlice = createSlice({
     AllProductReducer:(state,action)=>{
         state.AllProduct = action.payload
     },
-    GetProducts:(state,action)=>{
+    GetProducts:(state, action)=>{
         state.value = action.payload
     },
     FilterReducer:(state,action)=>{

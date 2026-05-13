@@ -15,7 +15,8 @@ const Shop = () => {
   const [value, setValue] = useState(6);
 
 
-  const { value : product } = useSelector((state) => state.AllProducts);
+
+  // const { value : product } = useSelector((state) => state.AllProducts);
   const { AllProduct : productItem } = useSelector((state) => state.AllProducts);
 
 
@@ -31,10 +32,10 @@ const Shop = () => {
   };
 
   useEffect(() => {
-    if (product.length > 0) {
+    if (productItem.length > 0) {
       setLoading(true);
     }
-  }, [product]);
+  }, [productItem]);
 
   return (
     <>
@@ -62,7 +63,7 @@ const Shop = () => {
             <ul className="leading-8 py-3.75 text-[16px] font-normal ">
               <li
                 className="cursor-pointer"
-                onClick={() => dispatch(GetProducts(product))}
+                onClick={() => dispatch(GetProducts(productItem))}
               >
                 All Product
               </li>

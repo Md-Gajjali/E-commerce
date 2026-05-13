@@ -95,7 +95,7 @@ const Cards = ({ ImgSrc, title, discountPrice, disRating, Delete, disEye, disHea
       dispatch(WishlistReducer(productDetails))
     } 
     setChange(!change)
-      notify(matchItem)
+    notify(matchItem)
   }
 
   
